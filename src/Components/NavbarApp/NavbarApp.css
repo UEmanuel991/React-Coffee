@@ -1,0 +1,56 @@
+
+
+  /* Navbar.js */
+
+  .navbar {
+    display: flex;
+    height: 18vh;
+   
+  }
+  .container-navbar {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .nav-logo {
+    display: flex;
+    width: 220px;
+    margin-left: 10px;
+    height: 16vh;
+  }
+.navdropdownbar {
+  margin-left: 4px;
+}
+.navdropdown-item {
+  margin-right: 5px;
+}
+  .card-text-content {
+    overflow: hidden;
+  }
+  .currency-selector {
+    display: flex;
+    list-style: none;
+    /* color: white;
+    background: black; */
+    border-radius: 5px;
+  }
+  
+  .d-flex {
+    display: flex;
+    height: 60px;
+    border: none;
+  }
+  .me-1 {
+    
+    color: white;
+    border: none;
+  }
+
+  .colorWhite {
+    color: white;
+  }
+  .colorBlack {
+    color: rgb(10, 10, 10);
+  }
+  .setTextLight {
+    color: black !important;
+  }

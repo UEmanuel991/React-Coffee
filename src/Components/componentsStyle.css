@@ -1,0 +1,53 @@
+/* VideoComponent */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+ 
+}
+video {
+  min-width: 100%;
+  min-height: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+ 
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+
+/* CardComp.js */
+.card-shop {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+  flex-direction: row ;
+  border: none !important;
+  width: 33.33%;
+  margin: 30px 0 0;
+  padding: 0 15px;
+}
+.card-img {
+  height: '100%';
+  object-fit: cover;
+  display: flex;
+ flex-wrap:wrap;
+}
+.shop-links,
+h1 {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.shop-links a {
+  text-decoration: none;
+  color: rgb(11, 3, 3);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  gap: 10px;
+}
+.shop-links a:hover {
+  background-color: #a17026;
+  border-radius: 7px;
+}
+

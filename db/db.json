@@ -1,0 +1,40 @@
+{
+  "collections": {},
+  "categories": [
+    {
+      "id": "1",
+      "link": "/collections/cafea",
+      "title": "CAFEA",
+      "image": "img/shop-cafea-img.jpg",
+      "categories": "ESPRESSO  •  FILTRU •  MICROLOT  •  ABONAMENTE",
+      "products": [
+        {
+          "id": "10",
+          "name": "espresso",
+          "sub_products": [
+            {
+              "ingredients": "",
+              "name": "BRAZIL OLHOS",
+              "price": 50,
+              "image": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "link": "/collections/ceai",
+      "title": "CEAI",
+      "image": "img/shop-ceai-img.jpg",
+      "categories": "ALB   •   VERDE   •   NEGRU    •    INFUZII"
+    },
+    {
+      "id": "2",
+      "link": "/collections/echipamente",
+      "title": "ECHIPAMENTE CAFEA",
+      "image": "img/shop-echipamente-img.jpg",
+      "categories": "ECHIPAMENTE PENTRU ACASĂ    •   ACCESORII PENTRU BARISTA   •   ECHIPAMENTE PROFESIONALE"
+    }
+  ]
+}
