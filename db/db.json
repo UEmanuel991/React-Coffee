@@ -1,40 +1,274 @@
 {
-  "collections": {},
-  "categories": [
+  "cafea": [
     {
-      "id": "1",
-      "link": "/collections/cafea",
-      "title": "CAFEA",
-      "image": "img/shop-cafea-img.jpg",
-      "categories": "ESPRESSO  •  FILTRU •  MICROLOT  •  ABONAMENTE",
-      "products": [
+      "espresso": [
         {
-          "id": "10",
-          "name": "espresso",
-          "sub_products": [
-            {
-              "ingredients": "",
-              "name": "BRAZIL OLHOS",
-              "price": 50,
-              "image": ""
-            }
-          ]
+          "id": 1,
+          "nume": "BRAZIL OLHOS D'AGUA",
+          "detalii": "chocolate, nuts, butter",
+          "pret": 10.82,
+          "descriere": {
+            "regiune": "CERRADO MINEIRO",
+            "altitudine": "1145 M",
+            "varietate": "YELLOW CATUAI",
+            "procesare": "NATURALA"
+          },
+          "imagine": "/img/brazil olhos d-agua.jpg.png",
+          "path": ""
+        },
+        {
+          "id": 2,
+          "nume": "CONFORT BLEND",
+          "detalii": "marzipan, raisins, caramel",
+          "pret": 10.82,
+          "descriere": {
+            "regiune": "TARRAZU",
+            "altitudine": "1800M",
+            "varietate": "RICA CEDRO",
+            "procesare": "SPĂLATĂ"
+          },
+          "imagine": "/img/confort-blend.jpg.png"
+        },
+        {
+          "id": 3,
+          "nume": "COLOMBIA LAS PERLITAS",
+          "detalii": "floral, citrus, exotic",
+          "pret": 14.06,
+          "descriere": {
+            "regiune": "Urrao",
+            "altitudine": "1145-1800M",
+            "varietate": "CATURRA, CHIROSO",
+            "procesare": "SPALATA"
+          },
+          "imagine": "/img/COLOMBIA LAS PERLITAS.png"
+        },
+        {
+          "id": 4,
+          "nume": "ETHIOPIA KERAMO",
+          "detalii": "jasmine, vanilla, citrus",
+          "pret": 14.0,
+          "descriere": {
+            "regiune": "SIDAMA",
+            "altitudine": "2260-2360M",
+            "varietate": "MIXED VARIETALS",
+            "procesare": "SPĂLATĂ"
+          },
+          "imagine": "/img/ETHIOPIA KERAMO.png"
+        },
+        {
+          "id": 5,
+          "nume": "KENYA TEGU",
+          "detalii": "black currant, citrus, caramel",
+          "pret": 10.0,
+          "descriere": {
+            "regiune": "Kirinyaga",
+            "altitudine": "1800M",
+            "varietate": "SL, BATIAN, RUIRU 11",
+            "procesare": "SPĂLATĂ"
+          },
+          "imagine": "/img/kenya tegu.png"
         }
       ]
     },
     {
-      "id": "2",
-      "link": "/collections/ceai",
-      "title": "CEAI",
-      "image": "img/shop-ceai-img.jpg",
-      "categories": "ALB   •   VERDE   •   NEGRU    •    INFUZII"
+      "filtru": [
+        {
+          "id": 6,
+          "nume": "FILTER COLOMBIA LAS PERLITAS",
+          "detalii": "floral, citrus, exotic",
+          "pret": 65.0,
+          "descriere": {
+            "regiune": "URRAO",
+            "altitudine": "1145-1800M",
+            "varietate": "CATURRA, CHIROSO",
+            "procesare": "SPĂLATĂ"
+          },
+          "imagine-produs": "/img/filter-colombia-las-perlitas.jpg.png"
+        },
+        {
+          "id": 7,
+          "nume": "FILTER ETHIOPIA KERAMO",
+          "detalii": "jasmine, vanilla, citrus",
+          "pret": 65.0,
+          "descriere": {
+            "regiune": "SIDAMA",
+            "altitudine": "2260-2360M",
+            "varietate": "MIXED VARIETALS",
+            "procesare": "SPĂLATĂ"
+          },
+          "imagine-produs": "/img/filter-ethiopia-keramo.jpg.png"
+        },
+        {
+          "id": 8,
+          "nume": "ETHIOPIA BUKU HAMBELA",
+          "detalii": "blueberry, floral, apricot",
+          "pret": 95.0,
+          "descriere": {
+            "regiune": "GUJI",
+            "altitudine": "2275M",
+            "varietate": "74110, 74112, 74158",
+            "procesare": "naturală"
+          },
+          "imagine-produs": "/img/filter-ethiopia buku.jpg.png"
+        },
+        {
+          "id": 9,
+          "nume": "YEMEN ANS XI",
+          "detalii": "exotic, rum, floral",
+          "pret": 285.0,
+          "descriere": {
+            "regiune": "DHAMAR",
+            "altitudine": "2000M",
+            "varietate": "KENT",
+            "procesare": "ANAEROBĂ CONTROLATĂ"
+          },
+          "imagine-produs": "/img/filter-yemen ans.jpg.png"
+        }
+      ]
     },
     {
-      "id": "2",
-      "link": "/collections/echipamente",
-      "title": "ECHIPAMENTE CAFEA",
-      "image": "img/shop-echipamente-img.jpg",
-      "categories": "ECHIPAMENTE PENTRU ACASĂ    •   ACCESORII PENTRU BARISTA   •   ECHIPAMENTE PROFESIONALE"
+      "microlot": [
+        {
+          "id": 10,
+          "nume": "RARE COFFEE BOX",
+          "detalii": "o colecție simbol, 4 cafele x 20gr",
+          "pret": 290.0,
+          "descriere": "Patru loturi eminente, într-un cadou la îndemână. Un curatoriat minuțios prin Mihai Panfil, fondator Origo, face accesibilă tuturor o degustare de cafele cu punctaj ridicat. Colecția surprinde particularitățile de gust cristalizate în 10 ani de Origo. Pasionații de cafea apreciază note care se regăsesc în 4 profiluri de gust: ciocolatiu, fructat, citric, exotic.",
+          "imagine-produs": "/img/microlot-rare-coffee-box.jpg.png"
+        },
+        {
+          "id": 11,
+          "nume": "PANAMA KAMBERA",
+          "detalii": "pink flowers, orange, exotic",
+          "pret": 180.0,
+          "descriere": "Un desert în ceașcă, un profil complex, care te face să uiți că bei cafea - Panama Kambera, varietate Gesha. Portocală, flori roz, fructe exotice sunt note specifice pentru Kambera. Potențialul acestui lot constă în efervescența și claritatea profilului. Boabele de Gesha au acest profil unic, în care aciditatea se dezvoltă pe mai multe dimensiuni și astfel creează intensitate în gust prin dulceață,  vei simți lactic, malic, citric. Extracția va fi una dulce, structurată, corpolentă, clară, rotundă.",
+          "imagine-produs": "/img/microlot-panama-kambera.jpg.png"
+        },
+        {
+          "id": 12,
+          "nume": "YEMEN ANS XI",
+          "detalii": "exotic, rum, floral",
+          "pret": 285.0,
+          "descriere": "Toate cele 45 kg din lotul Yemen ANS XI își merită laudele. Provenit din regiunea Ans, renumită pentru producția de cafele nemaiîntâlnite și procesate inedit, acest lot are un profil de gust excepțional, puternic exotic.",
+          "imagine-produs": "/img/microlot-yemen-ans.jpg.png"
+        }
+      ]
+    }
+  ],
+  "ceai": [
+    {
+      "alb": [
+        {
+          "id": 13,
+          "nume": "WHITE TEA SPIRULINA",
+          "detalii": "floral, citric, cremos",
+          "pret": 50.0,
+          "descriere": "White Tea Spirulina este un ceai cu un caracter floral. Datorită mixul de ingrediente, jiao gu lan, mușețel, floare de lumânărică, portocală, spirulină, noni și gaviola, infuzia dezvoltă un gust dulce și o textură densă, cremoasă. ",
+          "imagine-produs": "/img/ceai-alb-spirulina.jpg.png"
+        }
+      ],
+      "negru": [
+        {
+          "id": 14,
+          "nume": "BLACK TEA EARL GREY",
+          "detalii": "intens, lemnos, citric, elegant",
+          "pret": 50.0,
+          "descriere": "Earl Grey este un mix elegant de ceai negru cu ulei din coajă de citrice. În ceașcă, ceaiul dezvoltă o aromă puternică și persistentă, cu note lemnoase și citrice, completată de o corpolență elegantă.",
+          "imagine-produs": "/img/ceai-negru-earl-gray.jpg.png"
+        },
+        {
+          "id": 15,
+          "nume": "BLACK TEA STUDIO 54",
+          "detalii": "floral, fructat, catifelat",
+          "pret": 50.0,
+          "descriere": "Black Tea Studio 54 este un ceai negru într-un mix cu ingrediente speciale  șampanie, căpșune și flori. Împreună vor dezvolta în ceașcă o textură catifelată, o dulceață ridicată și un gust complex prin note florale și fructate.",
+          "imagine-produs": "/img/ceai-negru-studio54.jpg.png"
+        }
+      ],
+      "verde": [
+        {
+          "id": 16,
+          "nume": "GREEN TEA CITRONELLA",
+          "detalii": "floral, citric, catifelat",
+          "pret": 50.0,
+          "descriere": "Green Tea Citronella este un mix floral și citric de ceai verde cu lemongrass și bucăți de lămâie. Împreună dezvoltă o ceașcă dulce, cu o textură catifelată și o aromă proaspătă florală.",
+          "imagine-produs": "/img/ceai-verde-citronella.jpg.png"
+        }
+      ]
+    }
+  ],
+  "echipamente": [
+    {
+      "echipamente_acasa": [
+        {
+          "id": 17,
+          "nume": "ESPRESSOR PRIMA",
+          "detalii": "espressor performant",
+          "descriere": "Espresor performant pentru acasă, dar și pentru cafenele cu volum redus - compact, versatil, prețios.Prima a fost lansat în 2021 și este nominalizat la prestigioase competiții pentru premii de design industrial.",
+          "pret": 27630.0,
+          "imagine-produs": "/img/espressor-prima.png"
+        },
+        {
+          "id": 18,
+          "nume": "ESPRESSOR MUSICA",
+          "detalii": "espressor performant",
+          "descriere": "Espresor performant pentru acasă.Are un design elegant și compact care amintește de forma unei harpe. Il poți testa, făcând o programare.",
+          "pret": 9650.0,
+          "imagine-produs": "/img/espressor-musica.png"
+        },
+        {
+          "id": 19,
+          "nume": "ESPRESSOR OSCAR",
+          "detalii": "compact / 32 cm, espressor manual",
+          "descriere": "Espressor pentru acasă. Il poți testa, făcând o programare.",
+          "pret": 5880.0,
+          "imagine-produs": "/img/espressor-oscar.png"
+        }
+      ],
+      "echipamente_barista": [
+        {
+          "id": 17,
+          "nume": "CHEMEX",
+          "detalii": "perfect să prepari cafea cu textură delicată",
+          "descriere": "Cu un design elegant, Chemex-ul nu doar arată bine, face și o cafea delicioasă. Alături de filtrul de hârtie al chemex-ului, care reține eficient zațul de cafea și o parte din uleiurile cafelei, vei obține o cafea cu textură clară, note subtile și o corpolență delicată. Vă puteți alege filtrele.",
+          "pret": 280.0,
+          "imagine-produs": "/img/barista-chemex.png"
+        },
+        {
+          "id": 18,
+          "nume": "SIPHON",
+          "detalii": "espressor performant",
+          "descriere": "O metodă spectaculoasă de brew care cu siguranță îți va face diminețile mai interesante! E ca și cum ți-ai crea un mic laborator de chimie chiar la tine acasă. Cu această metodă vei obține o cafea corpolentă și cu puțin mai multă cofeină față de celălalte metode de filtru datorită timpului mai lung de infuzie. Syphon-ul îți permite să controlezi intensitatea căldurii și timpul de extracție și vei avea ocazia să experimentezi până ce te vei obișnui cu această metodă de preparare. ",
+          "pret": 9650.0,
+          "imagine-produs": "/img/barista-syphon.png"
+        },
+        {
+          "id": 19,
+          "nume": "FILTRE V 60",
+          "detalii": "compact / 32 cm, espressor manual",
+          "descriere": "Filtru de hârtie produs Hario, special pentru această metodă de preparare a cafelei V60.Permite apei să curgă în timp ce torni apa, în funcție de debitul turnării. Asigură o cafea curată, fără zaț sau alte reziduri în cafea.Ai grijă să umezești filtrul cu apă caldă după ce l-ai pus în con, pentru a înlătura aroma de hârtie.",
+          "pret": 5880.0,
+          "imagine-produs": "/img/barista-filtreV60.png"
+        }
+      ],
+      "echipamente_profesionale": [
+        {
+          "id": 17,
+          "nume": "ESPRESSOR SUPER-AUTOMAT EVERSYS CAMEO",
+          "detalii": "un espressor inteligent și automat potrivit pentru locațiile cu volum ridicat sau pentru birouri",
+          "descriere": "Produsele listate în această categorie sunt recomandate în special pentru locațiile care lucrează cu cafea de specialitate sau pentru spațiile de birouri. Lasă-ne un mesaj pe hello@origocoffee.ro cu mai multe detalii despre nevoile business-ului tău, iar noi îți vom pregăti o ofertă personalizată.",
+          "pret": "COMANDĂ",
+          "imagine-produs": "/img/profesional-espressor-super-automat.png"
+        },
+        {
+          "id": 18,
+          "nume": "BREWER AUTOMAT TONE TOUCH",
+          "detalii": "un brewer automat și eficient, potrivit pentru locațiile cu volum ridicat",
+          "descriere": "Produsele listate în această categorie sunt recomandate în special pentru locațiile care lucrează cu cafea de specialitate sau pentru spațiile de birouri. Lasă-ne un mesaj pe hello@origocoffee.ro cu mai multe detalii despre nevoile business-ului tău, iar noi îți vom pregăti o ofertă personalizată.",
+          "pret": "COMANDĂ",
+          "imagine-produs": "/img/profesional-brewer-automat.png"
+        }
+      ]
     }
   ]
 }

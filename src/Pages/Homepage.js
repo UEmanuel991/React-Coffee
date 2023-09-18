@@ -1,16 +1,31 @@
 import "../style/style.css";
-import BackgroundVideo from "../Components/BackgroundVideo";
+import BackgroundVideo from "../Components/Background/BackgroundVideo";
 import Footer from "../Components/Footer/Footer";
 import NavbarApp from "../Components/NavbarApp/NavbarApp";
-import CardComp from "../Components/CardComp";
-import { useState, useEffect } from "react";
+import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCoffeData, selectCoffeData, selectCoffeError, selectCoffeStatus } from "../store/coffeSlice";
 
+//#1 RANDATA ca HOMEPAGE
 const Homepage = ({ theme }) => {
+  const dispatch = useDispatch();
+  const coffeData = useSelector(selectCoffeData);
+  // const coffeStatus = useSelector(selectCoffeStatus);
+  // const coffeError = useSelector(selectCoffeError);
+
+  useEffect(()=> {
+    
+      dispatch(fetchCoffeData())
+    
+  },[dispatch])
   // eslint-disable-next-line no-unused-vars
   const [navbarAppTheme, setNavbarApp] = useState("light");
-
   return (
     <div className="homepage">
+      {
+        console.log(coffeData)
+      }
       <div style={{ backgroundColor: "black" }} className="nav-home">
         <NavbarApp
           className={"navdropdown btn "}
@@ -21,10 +36,8 @@ const Homepage = ({ theme }) => {
       </div>
       <div className="video-home">
         <BackgroundVideo />
-        <div className="home-modules"></div>
-
         <div className="home-page-content">
-          <p style={{ marginBottom: "-80px" }}>people </p>
+          <p style={{ marginBottom: "-80px", color: "white" }}>people </p>
           <p className="home-page-p">
             of speciality{" "}
             <p style={{ fontSize: "3vw", marginTop: "75px" }}>®</p>
@@ -33,18 +46,23 @@ const Homepage = ({ theme }) => {
       </div>
       <div className="shop-card-components">
         <div className="shop-coffe-mainpage">
-          <h2 style={{ marginLeft: "72px", fontSize: "20px" }}>
-            {/* shop <br></br> coffee */}
-          </h2>
-          {
-                // products.map((product) => (
-                //   <CardComp key={product.id} card={product}/>
-                // ))
-              } 
-        </div> 
-        <Footer />
+          <div className="home-page-content">
+            <h2
+            // style={{
+            //   marginLeft: "72px",
+            //   marginBottom: "30px",
+            //   fontSize: "20px",
+            // }}
+            >
+              shop <br></br> coffee
+            </h2>
+            <HomeCollectionsCard/>
+          </div>
+        </div>
+        <div className="homepage-footer">
+          <Footer />
+        </div>
       </div>
-      <div className="homepage-footer"></div>
     </div>
   );
 };

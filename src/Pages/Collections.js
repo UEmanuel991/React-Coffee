@@ -1,12 +1,15 @@
 import React from "react";
 import ".././style/style.css";
-import CardComp from "../Components/CardComp";
-import { COLLECTIONS } from "../utils/utils";
 import Wrapper from "../layouts/Wrapper";
+import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
 
-function CollectionsShop({ card }) {
+//#2 RANDATA COLLECTIONS path:/collections
+//RANDATA STATIC
+
+function Collections() {
   return (
     <Wrapper>
+      <h1 style={{}}>Collections PAGE</h1>
       <hr style={{ margin: "0px 40px" }}></hr>
       <div className="page-header">
         <div className="page-header-links">
@@ -39,11 +42,9 @@ function CollectionsShop({ card }) {
       <h1 style={{ marginBottom: "50px", fontSize: "30px", fontWeight: "400" }}>
         SHOP
       </h1>
-      {COLLECTIONS.map((el) => (
-        <CardComp key={el.id} card={el} />
-      ))}
+      <HomeCollectionsCard />
     </Wrapper>
   );
 }
 
-export default CollectionsShop;
+export default Collections;
