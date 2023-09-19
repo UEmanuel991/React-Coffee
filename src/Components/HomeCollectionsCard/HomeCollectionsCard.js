@@ -18,7 +18,7 @@ function HomeCollectionsCard() {
               <Card.Title>{prod.title}</Card.Title>
             </a>
             {prod.subtitles.map((elem, index) => (
-              <a
+              <a key={index}
                 href={elem.link}
                 style={{ textDecoration: "none", color: "black" }}
               >

@@ -4,46 +4,42 @@ import Homepage from "./Pages/Homepage";
 import CollectionCoffee from "./Pages/CollectionCoffee";
 import CollectionsProducts from "./Pages/CollectionsProducts";
 import Cart from "./Pages/Cart";
-import Cont from './Pages/Cont'
+import Cont from "./Pages/Cont";
 import Product from "./Pages/Product";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 
 const route = createBrowserRouter([
   {
     path: "/",
-    element: <Homepage />
+    element: <Homepage />,
   },
   {
     path: "/collections",
-    element: <Collections/>
+    element: <Collections />,
   },
   {
     path: "/collections/cafea",
-    element: <CollectionCoffee />
+    element: <CollectionCoffee />,
   },
   {
     path: "/collections/collection-products",
-    element: <CollectionsProducts />
+    element: <CollectionsProducts />,
   },
   {
     path: "/collections/product",
-    element: <Product/>
+    element: <Product />,
   },
   {
-    path: "/cart",
-    element: <Cart/>
+    path: "/collections/cart",
+    element: <Cart />,
   },
   {
-    path: "/cont",
-    element: <Cont/>
-  }
-])
-
+    path: "/collections/cont",
+    element: <Cont />,
+  },
+]);
 
 function App() {
-  return <RouterProvider router={route} />
-   
+  return <RouterProvider router={route} />;
 }
-
 export default App;

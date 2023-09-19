@@ -2,7 +2,6 @@ import React from "react";
 import "../style/style.css";
 import { COFFEE_COLLECTIONS } from "../utils/utils";
 import Wrapper from "../layouts/Wrapper";
-
 //#3 RANDATA ca CollectionsProducts path: /collections/collection-products
 //RANDATA STATIC
 
