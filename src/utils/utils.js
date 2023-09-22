@@ -3,7 +3,7 @@ export const HOMEPAGE_COLLECTIONS = [
     id: 1,
     images: "../img/shop-cafea-img.jpg",
     title: "CAFEA",
-    path: "collections/collection-products",
+    path: "collection-products",
     subtitles: [
       {
         name: "espresso",
@@ -90,25 +90,25 @@ export const COFFEE_COLLECTIONS = [
     id: 1,
     name: " ESPRESSO  ",
     image: "../img/espresso-caffe.jpg.jpg",
-    link: "collections/:id",
+    link: "/collections/collection-products/product/espresso",
   },
   {
     id: 2,
     name: "•  FILTRU ",
     image: "../img/filtru-caffe.jpg.jpg",
-    link: "collections/:id",
+    link: "/collections/collection-products/product/filtru",
   },
   {
     id: 3,
     name: "•  MICROLOT",
     image: "../img/microlot-caffe.jpg.jpg",
-    link: "collections/:id",
+    link: "/collections/collection-products/product/microlot",
   },
   {
     id: 4,
     name: "•  ABONAMENTE",
     image: "../img/abonament-caffe.jpg.png",
-    link: "/collections/:id",
+    link: "/collections/collection-products/product/abonamente",
   },
 ];
 

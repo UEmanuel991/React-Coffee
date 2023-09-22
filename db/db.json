@@ -14,8 +14,7 @@
             "procesare": "NATURALA",
             "informatii": "Aproape 5 ani de contact direct cu Brazilia. Aequitas Coffee. Ferma Olhos d'Agua.La degustare, Brazil Olhos d'Agua s-a remarcat prin corpolența crescută, textura cremoasă și aciditatea scăzută, lactică. 84 puncte QGrading - evaluare pentru calitatea cafelei verzi.Cafeaua care provine de la această fermă are o poveste fascinantă. Aflată la 4 generații de producători, aparține familiei lui Nicolau Minami, de origine japoneză, stabilită în Brazilia în 1927. Cu ajutorul lui Yuki Minami, fiica acestuia, au îmbunătățit calitatea procesării și au stabilit o cale mai bună de a exporta cafeaua."
           },
-          "imagine": "/img/brazil olhos d-agua.jpg.png",
-          "path": ""
+          "imagine": "/img/brazil olhos d-agua.jpg.png"
         },
         {
           "id": 2,
@@ -236,7 +235,7 @@
       ],
       "echipamente_barista": [
         {
-          "id": 17,
+          "id": 20,
           "nume": "CHEMEX",
           "detalii": "perfect să prepari cafea cu textură delicată",
           "descriere": "Cu un design elegant, Chemex-ul nu doar arată bine, face și o cafea delicioasă. Alături de filtrul de hârtie al chemex-ului, care reține eficient zațul de cafea și o parte din uleiurile cafelei, vei obține o cafea cu textură clară, note subtile și o corpolență delicată. Vă puteți alege filtrele.",
@@ -244,7 +243,7 @@
           "imagine-produs": "/img/barista-chemex.png"
         },
         {
-          "id": 18,
+          "id": 21,
           "nume": "SIPHON",
           "detalii": "espressor performant",
           "descriere": "O metodă spectaculoasă de brew care cu siguranță îți va face diminețile mai interesante! E ca și cum ți-ai crea un mic laborator de chimie chiar la tine acasă. Cu această metodă vei obține o cafea corpolentă și cu puțin mai multă cofeină față de celălalte metode de filtru datorită timpului mai lung de infuzie. Syphon-ul îți permite să controlezi intensitatea căldurii și timpul de extracție și vei avea ocazia să experimentezi până ce te vei obișnui cu această metodă de preparare. ",
@@ -252,7 +251,7 @@
           "imagine-produs": "/img/barista-syphon.png"
         },
         {
-          "id": 19,
+          "id": 22,
           "nume": "FILTRE V 60",
           "detalii": "compact / 32 cm, espressor manual",
           "descriere": "Filtru de hârtie produs Hario, special pentru această metodă de preparare a cafelei V60.Permite apei să curgă în timp ce torni apa, în funcție de debitul turnării. Asigură o cafea curată, fără zaț sau alte reziduri în cafea.Ai grijă să umezești filtrul cu apă caldă după ce l-ai pus în con, pentru a înlătura aroma de hârtie.",
@@ -262,7 +261,7 @@
       ],
       "echipamente_profesionale": [
         {
-          "id": 17,
+          "id":23,
           "nume": "ESPRESSOR SUPER-AUTOMAT EVERSYS CAMEO",
           "detalii": "un espressor inteligent și automat potrivit pentru locațiile cu volum ridicat sau pentru birouri",
           "descriere": "Produsele listate în această categorie sunt recomandate în special pentru locațiile care lucrează cu cafea de specialitate sau pentru spațiile de birouri. Lasă-ne un mesaj pe hello@origocoffee.ro cu mai multe detalii despre nevoile business-ului tău, iar noi îți vom pregăti o ofertă personalizată.",
@@ -270,7 +269,7 @@
           "imagine-produs": "/img/profesional-espressor-super-automat.png"
         },
         {
-          "id": 18,
+          "id":24,
           "nume": "BREWER AUTOMAT TONE TOUCH",
           "detalii": "un brewer automat și eficient, potrivit pentru locațiile cu volum ridicat",
           "descriere": "Produsele listate în această categorie sunt recomandate în special pentru locațiile care lucrează cu cafea de specialitate sau pentru spațiile de birouri. Lasă-ne un mesaj pe hello@origocoffee.ro cu mai multe detalii despre nevoile business-ului tău, iar noi îți vom pregăti o ofertă personalizată.",

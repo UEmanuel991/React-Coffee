@@ -1,5 +1,5 @@
 import React from 'react'
-import '../componentsStyle.css'
+import '../cStyle.css/componentsStyle.css'
 import VideoBackground from '../../assets/last-video-fundal.mp4'
 
 function BackgroundVideo() {

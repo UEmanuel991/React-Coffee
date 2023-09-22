@@ -7,6 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import SearchImg from "../../assets/white-search-icon.svg";
 import CoffeLogo from "../../assets/Coffee_Shop.svg";
 import "./NavbarApp.css";
+import { NavLink } from "react-router-dom";
 
 function NavbarApp(props) {
   console.log()
@@ -104,7 +105,7 @@ function NavbarApp(props) {
               aria-label="Search"
             />
           </Form>
-          <a href="/cart" >
+          <NavLink to={"/cart"} >
           <Button
             style={{ width: "3rem", height: "3rem", marginRight: "10px", position: "relative", color: "white", backgroundColor: "transparent", border: "none"}}
           >
@@ -131,7 +132,7 @@ function NavbarApp(props) {
               {/* cart-quantity */}
             </div>
           </Button>
-          </a>
+          </NavLink>
           <select className="currency-selector">
             <option>eur</option>
             <option>ron</option>

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  coffe: "",
+  coffe: [],
   error: null,
   status: "idle",
 };
@@ -13,12 +13,12 @@ export const coffeSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchCoffeData.pending, (state) => {
-        state.coffe = "";
+        state.coffe = [];
         state.error = null;
         state.status = "idle";
       })
       .addCase(fetchCoffeData.rejected, (state, action) => {
-        state.coffe = "";
+        state.coffe = [];
         state.error = action.error;
         state.status = "rejected";
       })
@@ -31,7 +31,8 @@ export const coffeSlice = createSlice({
 });
 export const fetchCoffeData = createAsyncThunk("coffeData/fetch", async () => {
   const response = await axios.get("http://localhost:3110/cafea");
-  return response.data[0];
+  // console.log("Slice", response.data[0].espresso)
+  return response.data;
 });
 
 export default coffeSlice.reducer;

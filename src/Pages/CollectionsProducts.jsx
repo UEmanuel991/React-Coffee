@@ -2,41 +2,43 @@ import React from "react";
 import "../style/style.css";
 import { COFFEE_COLLECTIONS } from "../utils/utils";
 import Wrapper from "../layouts/Wrapper";
-//#3 RANDATA ca CollectionsProducts path: /collections/collection-products
-//RANDATA STATIC
+import { NavLink } from "react-router-dom";
+
+//# 3 RANDATA ca CollectionsProducts path: /collections/collection-products
 
 function CollectionsProducts() {
+ 
   return (
     <>
       <Wrapper>
         <div className="coffe-container">
           <div className="coffe-container-titles">
             <div className="page-header-links">
-              <a
+              <NavLink
                 style={{
                   textDecoration: "none",
                   color: "black",
                   fontSize: "14px",
                   margin: "0px 5px",
                 }}
-                href="/"
+                to={"/"}
               >
                 Home
-              </a>
+              </NavLink>
               <span style={{ fontSize: "14px" }} className="divider">
                 /
               </span>
-              <a
+              <NavLink
                 style={{
                   textDecoration: "none",
                   color: "black",
                   fontSize: "14px",
                   margin: "0px 5px",
                 }}
-                href="/collections"
+                to={"/collections"}
               >
                 Shop
-              </a>
+              </NavLink>
               <span style={{ fontSize: "14px" }} className="divider">
                 /
               </span>
@@ -51,7 +53,6 @@ function CollectionsProducts() {
                 Cafea
               </span>
             </div>
-
             <h1
               style={{
                 marginBottom: "50px",
@@ -63,40 +64,51 @@ function CollectionsProducts() {
             </h1>
             <div className="page-img">
               <div className="page-container-links">
-                <a
+                <NavLink
                   style={{
                     textDecoration: "none",
                     color: "black",
                     fontSize: "14px",
                     margin: "0px 5px",
                   }}
-                  href="/espresso"
+                  to={"/collections/collection-products/product/espresso"}
                 >
                   ESPRESSO
-                </a>{" "}
+                  </NavLink>
                 &nbsp; •&nbsp;&nbsp;
-                <a
+                <NavLink
                   style={{
                     textDecoration: "none",
                     color: "black",
                     fontSize: "14px",
                     margin: "0px 5px",
                   }}
-                  href="/filtru"
+                  to={"/collections/collection-products/product/filtru"}
                 >
                   FILTRU &nbsp; •&nbsp;&nbsp;
-                </a>
-                <a
+                </NavLink>
+                <NavLink
                   style={{
                     textDecoration: "none",
                     color: "black",
                     fontSize: "14px",
                     margin: "0px 5px",
                   }}
-                  href="/microlot"
+                  to={"/collections/collection-products/product/microlot"}
                 >
                   MICROLOT &nbsp; •&nbsp;&nbsp;
-                </a>
+                </NavLink>
+                <NavLink
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    fontSize: "14px",
+                    margin: "0px 5px",
+                  }}
+                  to={"/collections/collection-products/product/abonamente"}
+                >
+                  ABONAMENTE &nbsp; •&nbsp;&nbsp;
+                </NavLink>
               </div>
               {COFFEE_COLLECTIONS.map((e) => (
                 <div
@@ -104,13 +116,13 @@ function CollectionsProducts() {
                   key={e.id}
                   className="page-container-images"
                 >
-                  <a href={e.link}>
+                  <NavLink to={e.link}>
                     <img
                       className="page-container-img"
                       src={e.image}
                       alt="my-img"
                     />
-                  </a>
+                  </NavLink>
                 </div>
               ))}
             </div>

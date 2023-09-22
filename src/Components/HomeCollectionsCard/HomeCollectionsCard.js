@@ -1,31 +1,32 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { HOMEPAGE_COLLECTIONS } from "../../utils/utils";
+import { NavLink } from "react-router-dom";
 
 function HomeCollectionsCard() {
   return (
     <div className="main-card-comp" style={{ display: "flex" }}>
       {HOMEPAGE_COLLECTIONS.map((prod) => (
         <Card key={prod.id} style={{ width: "33%", margin: "5px" }}>
-          <a href={prod.path}>
+          <NavLink to={prod.path}>
             <Card.Img variant="top" src={prod.images} />
-          </a>
+          </NavLink>
           <Card.Body>
-            <a
+            <NavLink
               style={{ textDecoration: "none", color: "black" }}
-              href={prod.path}
+              to={prod.path}
             >
               <Card.Title>{prod.title}</Card.Title>
-            </a>
+            </NavLink>
             {prod.subtitles.map((elem, index) => (
-              <a key={index}
-                href={elem.link}
+              <NavLink key={index}
+                to={elem.link}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <Card.Title key={index} prod={prod}>
-                  {elem.name}{" "}
+                  {elem.name}
                 </Card.Title>
-              </a>
+              </NavLink>
             ))}
           </Card.Body>
         </Card>

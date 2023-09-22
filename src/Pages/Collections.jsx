@@ -2,6 +2,7 @@ import React from "react";
 import ".././style/style.css";
 import Wrapper from "../layouts/Wrapper";
 import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
+import { NavLink } from "react-router-dom";
 
 //#2 RANDATA COLLECTIONS path:/collections
 //RANDATA STATIC
@@ -13,17 +14,17 @@ function Collections() {
       <hr style={{ margin: "0px 40px" }}></hr>
       <div className="page-header">
         <div className="page-header-links">
-          <a
+          <NavLink
             style={{
               textDecoration: "none",
               color: "black",
               fontSize: "14px",
               margin: "0px 5px",
             }}
-            href="/"
+            to={"/"}
           >
             Home
-          </a>
+          </NavLink>
           <span style={{ fontSize: "14px" }} className="divider">
             /
           </span>

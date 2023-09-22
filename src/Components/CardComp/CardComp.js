@@ -1,10 +1,11 @@
 import React from "react";
-import "../componentsStyle.css";
+import '../cStyle.css/componentsStyle.css';
 import Card from "react-bootstrap/Card";
+import {NavLink} from "react-router-dom"
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-function CardComp({ card }) {
+function CardComp() {
   const [path, setPath] = useState(null);
   //vreau sa trimit path-ul din pagina asta dinamic
   useEffect(() => {
@@ -54,16 +55,16 @@ function CardComp({ card }) {
               data={data}
               className="card-shop"
             >
-              <a href="/">
+              <NavLink to={"/"}>
                 <Card.Img
                   className="card-img"
                   variant="top"
                   src={d.imagine}
                   alt="logo"
                 />
-              </a>
+              </NavLink>
               <Card.Body>
-                <a
+                <NavLink
                   style={{
                     textDecoration: "none",
                     display: "flex",
@@ -72,11 +73,11 @@ function CardComp({ card }) {
                     fontFamily: "Inter",
                     fontWeight: "400",
                   }}
-                  href="/"
+                  to={"/"}
                 >
                   <Card.Title className="card-subtitle">{d.detalii}</Card.Title>
                   <Card.Title className="card-text-content"></Card.Title>
-                </a>
+                </NavLink>
                 <Card.Text
                   style={{
                     display: "flex",
