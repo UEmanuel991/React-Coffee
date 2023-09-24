@@ -1,29 +1,28 @@
-import "../Components/cStyle.css/componentsStyle.css";
-import "../style/style.css";
+import React from "react";
+import GenericProduct from "../Components/GenericProducts/GenericLastProduct";
 import Wrapper from "../layouts/Wrapper";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCoffeData, selectCoffeData } from "../store/coffeSlice";
-import { fetchTeaData } from "../store/teaSlice";
-import { fetchEquipmentsData } from "../store/equipmentsSlice";
-import { useEffect } from "react";
-import GenericProducts from "../Components/GenericProducts/GenericProducts";
-import { useParams } from "react-router-dom";
+// import { fetchTeaData } from "../store/teaSlice";
+// import { fetchEquipmentsData } from "../store/equipmentsSlice";
 
-// # 4  path: /collections/collection-products/product/:productType
+//http://localhost:3000/collections/collection-products/product/prod/:idType
 
-function Products() {
+function Product() {
   const dispatch = useDispatch();
-  const { productType } = useParams();
+  const { idType } = useParams();
   const coffeData = useSelector(selectCoffeData);
-
+  console.log("coffeData",coffeData)
   useEffect(() => {
     dispatch(fetchCoffeData());
-    dispatch(fetchTeaData);
-    dispatch(fetchEquipmentsData);
+    // dispatch(fetchTeaData);
+    // dispatch(fetchEquipmentsData)
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(productType);
+    console.log(idType);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -33,6 +32,7 @@ function Products() {
     }
     return products.espresso;
   });
+
   const allFiltruProducts = coffeData.map((products) => {
     if (products > 0) {
       return products;
@@ -45,12 +45,12 @@ function Products() {
     }
     return products.microlot;
   });
-  // console.log("espresso", allFiltruProducts);
-
+  console.log(coffeData);
   return (
     <>
       <Wrapper>
-        <GenericProducts
+        <p>asdasaaaa</p>
+        <GenericProduct
           productDetailsM={allMicrolotProducts}
           productDetailsE={allEspressoProducts}
           productDetailsF={allFiltruProducts}
@@ -60,4 +60,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Product;

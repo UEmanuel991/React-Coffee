@@ -31,7 +31,7 @@ export const coffeSlice = createSlice({
 });
 export const fetchCoffeData = createAsyncThunk("coffeData/fetch", async () => {
   const response = await axios.get("http://localhost:3110/cafea");
-  // console.log("Slice", response.data[0].espresso)
+  // console.log("Slice", response.data[1])
   return response.data;
 });
 

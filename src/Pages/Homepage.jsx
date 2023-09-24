@@ -4,6 +4,7 @@ import Footer from "../Components/Footer/Footer";
 import NavbarApp from "../Components/NavbarApp/NavbarApp";
 import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
 import { useState } from "react";
+// import { HOMEPAGE_COLLECTIONS } from "../utils/utils";
 
 // # 1
 
@@ -38,6 +39,7 @@ const Homepage = ({ theme }) => {
             <h2>
               shop <br></br> coffee
             </h2>
+            
             <HomeCollectionsCard />
           </div>
         </div>

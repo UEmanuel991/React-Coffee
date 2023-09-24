@@ -1,18 +1,17 @@
 import React from "react";
-import '../../style/style.css';
+import "../../style/style.css";
 import Card from "react-bootstrap/Card";
 import { NavLink } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 //pagina de randare toate produsele!!!!!!
 
-function GenericProducts({
-  productDetailsE,
-  productDetailsF,
-  productDetailsM,
-}) {
+function generateProductsCards(productDetails) {
+  console.log(productDetails);
   return (
     <>
-      {productDetailsE &&
-        productDetailsE.map((product) => {
+      {productDetails &&
+        productDetails.map((product) => {
+          console.log(productDetails);
           return (
             product &&
             product.map((p, index) => (
@@ -61,6 +60,24 @@ function GenericProducts({
         })}
     </>
   );
+}
+
+function GenericProducts({
+  productDetailsE,
+  productDetailsF,
+  productDetailsM,
+}) {
+  const { productType } = useParams();
+
+  let productDetails;
+  if (productType === "espresso") {
+    productDetails = productDetailsE;
+  } else if (productType === "filtru") {
+    productDetails = productDetailsF;
+  } else if (productType === "microlot") {
+    productDetails = productDetailsM;
+  }
+  return generateProductsCards(productDetails);
 }
 
 export default GenericProducts;
