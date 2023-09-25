@@ -2,12 +2,14 @@ import React from "react";
 import ".././style/style.css";
 import Wrapper from "../layouts/Wrapper";
 import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
+import { COLLECTIONS } from "../utils/utils";
 import { NavLink } from "react-router-dom";
 
 //#2 RANDATA COLLECTIONS path:/collections
 //RANDATA STATIC
 
 function Collections() {
+  const collectionsData = COLLECTIONS;
   return (
     <Wrapper>
       <h1 style={{}}>Collections PAGE</h1>
@@ -43,7 +45,7 @@ function Collections() {
       <h1 style={{ marginBottom: "50px", fontSize: "30px", fontWeight: "400" }}>
         SHOP
       </h1>
-      <HomeCollectionsCard />
+      <HomeCollectionsCard detailsProd={collectionsData} />
     </Wrapper>
   );
 }

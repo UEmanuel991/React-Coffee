@@ -1,4 +1,4 @@
-export const HOMEPAGE_COLLECTIONS = [
+export const HOMEPAGE = [
   {
     id: 1,
     images: "../img/shop-cafea-img.jpg",
@@ -7,15 +7,15 @@ export const HOMEPAGE_COLLECTIONS = [
     subtitles: [
       {
         name: "espresso",
-        link: "/collections/espresso",
+        link: "/collections/collection-products/product/espresso",
       },
       {
         name: "filtru",
-        link: "/collections/filtru",
+        link: "/collections/collection-products/product/filtru",
       },
       {
         name: "microlot",
-        link: "/collections/microlot",
+        link: "/collections/collection-products/product/microlot",
       },
     ],
   },
@@ -60,7 +60,7 @@ export const HOMEPAGE_COLLECTIONS = [
     ],
   },
 ];
-export const COLLECTIONS_COLLECTIONS = [
+export const COLLECTIONS = [
   {
     id: 1,
     images: "../img/shop-cafea-img.jpg",
@@ -69,15 +69,15 @@ export const COLLECTIONS_COLLECTIONS = [
     subtitles: [
       {
         name: "espresso",
-        link: "/collections/espresso",
+        link: "/collections/collection-products/product/espresso",
       },
       {
         name: "filtru",
-        link: "/collections/filtru",
+        link: "/collections/collection-products/product/filtru",
       },
       {
         name: "microlot",
-        link: "/collections/microlot",
+        link: "/collections/collection-products/product/microlot",
       },
     ],
   },
@@ -85,7 +85,7 @@ export const COLLECTIONS_COLLECTIONS = [
     id: 2,
     images: "../img/shop-ceai-img.jpg",
     title: "CEAI",
-    path: "/collections/collection-products/product/:productType",
+    path: "collection-products/product/:productType",
     subtitles: [
       {
         name: "alb",
@@ -105,7 +105,7 @@ export const COLLECTIONS_COLLECTIONS = [
     id: 3,
     images: "../img/shop-echipamente-img.jpg",
     title: "ECHIPAMENTE CAFEA",
-    path: "/collections/collection-products/product/:productType",
+    path: "collection-products/product/:productType",
     subtitles: [
       {
         name: "pentru acasa",
@@ -122,32 +122,7 @@ export const COLLECTIONS_COLLECTIONS = [
     ],
   },
 ];
-
-export const COLLECTIONS = [
-  {
-    id: 1,
-    name: "CAFEA",
-    image: "img/shop-cafea-img.jpg",
-    link: "/collections/cafea",
-    subtitle: "ESPRESSO  •  FILTRU •  MICROLOT  •  ABONAMENTE",
-  },
-  {
-    id: 2,
-    name: "CEAI",
-    image: "img/shop-ceai-img.jpg",
-    link: "/collections/ceai",
-    subtitle: "ALB   •   VERDE   •   NEGRU    •    INFUZII",
-  },
-  {
-    id: 3,
-    name: "ECHIPAMENTE CAFEA",
-    image: "img/shop-echipamente-img.jpg",
-    link: "/collections/echipamente",
-    subtitle:
-      "ECHIPAMENTE PENTRU ACASĂ    •   ACCESORII PENTRU BARISTA   •   ECHIPAMENTE PROFESIONALE",
-  },
-];
-export const COFFEE_COLLECTIONS = [
+export const COFFEE = [
   {
     id: 1,
     name: " ESPRESSO  ",
@@ -165,17 +140,5 @@ export const COFFEE_COLLECTIONS = [
     name: "•  MICROLOT",
     image: "../img/microlot-caffe.jpg.jpg",
     link: "/collections/collection-products/product/microlot",
-  },
-  {
-    id: 4,
-    name: "•  ABONAMENTE",
-    image: "../img/abonament-caffe.jpg.png",
-    link: "/collections/collection-products/product/abonamente",
-  },
+  }
 ];
-
-// export const ESPRESSO_PAGE_COLLECTIONS = [
-//   { id: 1, name: "espresso", image: "", link: "/collections/espresso" },
-//   { id: 2, name: "espresso", image: "", link: "/collections/filtru" },
-//   { id: 3, name: "espresso", image: "", link: "/collections/microlot" },
-// ];

@@ -1,13 +1,14 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { HOMEPAGE_COLLECTIONS } from "../../utils/utils";
+// import { HOMEPAGE_COLLECTIONS } from "../../utils/utils";
 import { NavLink } from "react-router-dom";
 
-function HomeCollectionsCard() {
+function HomeCollectionsCard({detailsProd}) {
+  console.log(detailsProd)
   return (
     <div className="main-card-comp" style={{ display: "flex" }}>
-      {HOMEPAGE_COLLECTIONS.map((prod) => (
-        <Card key={prod.id} style={{ width: "33%", margin: "5px" }}>
+      {detailsProd && detailsProd.map((prod, index) => (
+        <Card key={index} style={{ width: "33%", margin: "5px" }}>
           <NavLink to={prod.path}>
             <Card.Img variant="top" src={prod.images} />
           </NavLink>

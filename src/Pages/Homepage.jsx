@@ -3,6 +3,7 @@ import BackgroundVideo from "../Components/Background/BackgroundVideo";
 import Footer from "../Components/Footer/Footer";
 import NavbarApp from "../Components/NavbarApp/NavbarApp";
 import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
+import { HOMEPAGE } from "../utils/utils";
 import { useState } from "react";
 // import { HOMEPAGE_COLLECTIONS } from "../utils/utils";
 
@@ -11,7 +12,7 @@ import { useState } from "react";
 const Homepage = ({ theme }) => {
   // eslint-disable-next-line no-unused-vars
   const [navbarAppTheme, setNavbarApp] = useState("light");
-
+  const homepageDatas = HOMEPAGE
   return (
     <div className="homepage">
 
@@ -40,7 +41,8 @@ const Homepage = ({ theme }) => {
               shop <br></br> coffee
             </h2>
             
-            <HomeCollectionsCard />
+            <HomeCollectionsCard detailsProd = {homepageDatas} />
+           
           </div>
         </div>
         <div className="homepage-footer">

@@ -1,20 +1,22 @@
 import React from "react";
 import "../../style/style.css";
 import Card from "react-bootstrap/Card";
-import { NavLink } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 //pagina de randare toate produsele!!!!!!
 
-function generateProductsCards(productDetails) {
-  console.log(productDetails);
+function GenerateProductsCards(productDetails) {
+  // console.log(productDetails);
+  const { productType } = useParams();
   return (
     <>
       {productDetails &&
         productDetails.map((product) => {
-          console.log(productDetails);
+          // console.log(productDetails);
           return (
             product &&
             product.map((p, index) => (
+              <NavLink key={index} to={`/collections/collection-products/product/${productType}/${p.id}`}>
               <Card
                 key={index}
                 style={{
@@ -24,37 +26,33 @@ function generateProductsCards(productDetails) {
                 }}
                 className="card-shop"
               >
-                <NavLink to={""}>
+                
                   <Card.Img
                     className="card-img"
                     variant="top"
                     src={p.imagine}
                     alt="logos"
                   />
-                </NavLink>
+              
                 <Card.Body>
                   <Card.Title className="card-text-content">
-                    <NavLink
-                      style={{
-                        textDecoration: "none",
-                        display: "flex",
-                        justifyContent: "center",
-                        color: "black",
-                        fontFamily: "Inter",
-                        fontWeight: "400",
-                      }}
-                      to={""}
-                    >
+                  
                       {p.nume}
-                    </NavLink>
+                  
                   </Card.Title>
                   <Card.Text
                     style={{ display: "flex", justifyContent: "center" }}
                   >
                     {p.detalii}
                   </Card.Text>
+                  <Card.Text
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                   $ {p.pret}
+                  </Card.Text>
                 </Card.Body>
               </Card>
+              </NavLink>
             ))
           );
         })}
@@ -77,7 +75,7 @@ function GenericProducts({
   } else if (productType === "microlot") {
     productDetails = productDetailsM;
   }
-  return generateProductsCards(productDetails);
+  return GenerateProductsCards(productDetails);
 }
 
 export default GenericProducts;

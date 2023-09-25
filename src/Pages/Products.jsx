@@ -7,13 +7,12 @@ import { fetchTeaData } from "../store/teaSlice";
 import { fetchEquipmentsData } from "../store/equipmentsSlice";
 import { useEffect } from "react";
 import GenericProducts from "../Components/GenericProducts/GenericProducts";
-import { useParams } from "react-router-dom";
 
 // # 4  path: /collections/collection-products/product/:productType
 
 function Products() {
   const dispatch = useDispatch();
-  const { productType } = useParams();
+  // const { productType } = useParams();
   const coffeData = useSelector(selectCoffeData);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ function Products() {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(productType);
+    // console.log(productType);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -45,7 +44,6 @@ function Products() {
     }
     return products.microlot;
   });
-  console.log(coffeData) 
   return (
     <>
       <Wrapper>

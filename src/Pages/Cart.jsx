@@ -113,7 +113,7 @@ const Cart = () => {
                 </td>
                 <td>
                   <span style={{fontSize: "16px"}}
-                    class="money"
+                    className="money"
                     data-currency-ron="150,00 lei"
                     data-currency-eur="&amp;euro;30.26"
                     data-currency="EUR"
@@ -147,7 +147,7 @@ const Cart = () => {
           <div className="cart-checkout">
             <p className="cart-price">
               <span
-                class="money"
+                className="money"
                 data-currency-ron="150,00 lei"
                 data-currency-eur="&amp;euro;30.26"
                 data-currency="EUR"
@@ -171,7 +171,8 @@ const Cart = () => {
               type="submit"
               name="update"
               value="UPDATE"
-              class="secondary"
+              // // eslint-disable-next-line react/jsx-no-duplicate-props
+              // className="secondary"
             ></input>
             <input
               style={{
@@ -195,7 +196,7 @@ const Cart = () => {
             <form action="/action-page">
             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
             <a style={{textDecoration: "none", color:"black", marginLeft:"5px"}} href="/terms">
-            <label for="vehicle1"> Am citit și am luat la cunoștință Politica privind prelucrarea datelor cu caracter personal</label></a>
+            <label htmlFor="vehicle1"> Am citit și am luat la cunoștință Politica privind prelucrarea datelor cu caracter personal</label></a>
             </form>
           </div>
       </div>

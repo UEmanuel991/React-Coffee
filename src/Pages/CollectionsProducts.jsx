@@ -1,6 +1,6 @@
 import React from "react";
 import "../style/style.css";
-import { COFFEE_COLLECTIONS } from "../utils/utils";
+import { COFFEE } from "../utils/utils";
 import Wrapper from "../layouts/Wrapper";
 import { NavLink } from "react-router-dom";
 
@@ -98,19 +98,8 @@ function CollectionsProducts() {
                 >
                   MICROLOT &nbsp; •&nbsp;&nbsp;
                 </NavLink>
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    fontSize: "14px",
-                    margin: "0px 5px",
-                  }}
-                  to={"/collections/collection-products/product/abonamente"}
-                >
-                  ABONAMENTE &nbsp; •&nbsp;&nbsp;
-                </NavLink>
               </div>
-              {COFFEE_COLLECTIONS.map((e) => (
+              {COFFEE.map((e) => (
                 <div
                   style={{ display: "flex" }}
                   key={e.id}
