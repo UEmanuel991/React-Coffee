@@ -6,6 +6,12 @@ const initialState = {
   error: null,
   status: "idle",
 };
+export const fetchCoffeData = createAsyncThunk("coffeData/fetch", async () => {
+  const response = await axios.get("http://localhost:3110/cafea");
+  // console.log("Slice", response.data[1])
+  return response.data;
+});
+
 export const coffeSlice = createSlice({
   name: "coffeData",
   initialState,
@@ -28,11 +34,6 @@ export const coffeSlice = createSlice({
         state.status = "succes";
       });
   },
-});
-export const fetchCoffeData = createAsyncThunk("coffeData/fetch", async () => {
-  const response = await axios.get("http://localhost:3110/cafea");
-  // console.log("Slice", response.data[1])
-  return response.data;
 });
 
 export default coffeSlice.reducer;

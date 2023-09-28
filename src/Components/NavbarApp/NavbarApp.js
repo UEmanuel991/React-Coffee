@@ -8,8 +8,11 @@ import SearchImg from "../../assets/white-search-icon.svg";
 import CoffeLogo from "../../assets/Coffee_Shop.svg";
 import "./NavbarApp.css";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function NavbarApp(props) {
+  const { quantity } = useSelector((state) => state.cart)
+
   console.log();
   return (
     <Navbar expand="lg" className="navbar">
@@ -151,7 +154,7 @@ function NavbarApp(props) {
                   transform: "translate(-85%, -160%)",
                 }}
               >
-                {/* cart-quantity */}
+                { quantity }
               </div>
             </Button>
           </NavLink>

@@ -3,6 +3,7 @@ import "./Footer.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -18,7 +19,6 @@ function Footer() {
                   U™ <br></br> COFFEE
                 </h1>
                 <h1 className="footer-title">
-                  {" "}
                   Pioneering specialty coffee since 2013
                 </h1>
                 <br></br>
@@ -44,13 +44,13 @@ function Footer() {
                     </h3>
                     <ul style={{ listStyle: "none" }}>
                       <li>
-                        <a href="/contact">Contact</a>
+                        <NavLink to={"/contact"}>Contact</NavLink>
                       </li>
                       <li>
-                        <a href="/contact">Termeni si conditii</a>
+                        <NavLink to={"/contact"}>Termeni si conditii</NavLink>
                       </li>
                       <li>
-                        <a href="/contact">Politica Cookie</a>
+                        <NavLink to={"/contact"}>Politica Cookie</NavLink>
                       </li>
                     </ul>
                   </Col>
@@ -68,10 +68,10 @@ function Footer() {
                     </h3>
                     <ul style={{ listStyle: "none" }}>
                       <li>
-                        <a href="/collections/cafea">Cafea</a>
+                        <NavLink to={"/collections/collection-products"}>Cafea</NavLink>
                       </li>
                       <li>
-                        <a href="/collections/ceai">Ceai</a>
+                        <NavLink to={""}>Ceai</NavLink>
                       </li>
                     </ul>
                   </Col>

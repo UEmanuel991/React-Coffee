@@ -3,35 +3,36 @@ import Card from "react-bootstrap/Card";
 // import { HOMEPAGE_COLLECTIONS } from "../../utils/utils";
 import { NavLink } from "react-router-dom";
 
-function HomeCollectionsCard({detailsProd}) {
-  console.log(detailsProd)
+function HomeCollectionsCard({ detailsProd }) {
   return (
     <div className="main-card-comp" style={{ display: "flex" }}>
-      {detailsProd && detailsProd.map((prod, index) => (
-        <Card key={index} style={{ width: "33%", margin: "5px" }}>
-          <NavLink to={prod.path}>
-            <Card.Img variant="top" src={prod.images} />
-          </NavLink>
-          <Card.Body>
-            <NavLink
-              style={{ textDecoration: "none", color: "black" }}
-              to={prod.path}
-            >
-              <Card.Title>{prod.title}</Card.Title>
+      {detailsProd &&
+        detailsProd.map((prod, index) => (
+          <Card key={index} style={{ width: "33%", margin: "5px" }}>
+            <NavLink to={prod.path}>
+              <Card.Img variant="top" src={prod.images} />
             </NavLink>
-            {prod.subtitles.map((elem, index) => (
-              <NavLink key={index}
-                to={elem.link}
+            <Card.Body>
+              <NavLink
                 style={{ textDecoration: "none", color: "black" }}
+                to={prod.path}
               >
-                <Card.Title key={index} prod={prod}>
-                  {elem.name}
-                </Card.Title>
+                <Card.Title>{prod.title}</Card.Title>
               </NavLink>
-            ))}
-          </Card.Body>
-        </Card>
-      ))}
+              {prod.subtitles.map((elem, index) => (
+                <NavLink
+                  key={index}
+                  to={elem.link}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <Card.Title key={index} prod={prod}>
+                    {elem.name}
+                  </Card.Title>
+                </NavLink>
+              ))}
+            </Card.Body>
+          </Card>
+        ))}
     </div>
   );
 }

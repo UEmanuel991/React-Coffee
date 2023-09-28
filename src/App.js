@@ -5,8 +5,9 @@ import CollectionsProducts from "./Pages/CollectionsProducts";
 import Cart from "./Pages/Cart";
 import Cont from "./Pages/Cont";
 import Products from "./Pages/Products";
-import Product from './Pages/Product'
+import Product from "./Pages/Product";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import { StoreProvider } from "./store/context-and-reducer/StoreContext";
 
 const route = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const route = createBrowserRouter([
   },
   {
     path: "/collections/collection-products/product/:productType/:id",
-    element: <Product />
+    element: <Product />,
   },
   {
     path: "/collections/cart",
@@ -40,6 +41,10 @@ const route = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={route} />;
+  return (
+   
+      <RouterProvider router={route} />
+   
+  );
 }
 export default App;

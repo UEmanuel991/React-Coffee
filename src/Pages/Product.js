@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Wrapper from "../layouts/Wrapper";
 import Icon from "react-icons-kit";
 import Table from "react-bootstrap/Table";
 import { facebook } from "react-icons-kit/icomoon/facebook";
@@ -7,11 +8,15 @@ import { twitter } from "react-icons-kit/icomoon/twitter";
 import { mail } from "react-icons-kit/icomoon/mail";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
+//redux
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCoffeData, selectCoffeData } from "../store/coffeSlice";
-import { fetchTeaData } from "../store/teaSlice";
-import { fetchEquipmentsData } from "../store/equipmentsSlice";
-import Wrapper from "../layouts/Wrapper";
+import {
+  fetchCoffeData,
+  selectCoffeData,
+} from "../store/productsStore/coffeSlice";
+import { fetchTeaData } from "../store/productsStore/teaSlice";
+import { fetchEquipmentsData } from "../store/productsStore/equipmentsSlice";
+import { add } from "../store/cartSlice";
 
 function Product() {
   const dispatch = useDispatch();
@@ -25,11 +30,32 @@ function Product() {
   }, [dispatch]);
 
   const allEspressoProducts = coffeData.map((products) => {
-    console.log(products[productType]);
     return products[productType];
   });
- 
-  // Check if coffeData and arrayInsideFirstObject are ready before accessing id
+  const getJsonIndex = () => {
+    let index = 0;
+    if (productType === "espresso") {
+      return index;
+    } else if (productType === "filtru") {
+      index = 1;
+    } else if (productType === "microlot") {
+      index = 2;
+    }
+    return index;
+  };
+  const prodIndex = getJsonIndex();
+
+  useEffect(() => {
+    dispatch(add());
+  }, [dispatch]);
+
+  const handleAddToCart = () => {
+    const productToAdd = allEspressoProducts?.[prodIndex]?.[id - 1];
+    dispatch(add(productToAdd));
+  };
+
+  // const testState = useSelector(state => state)
+  // console.log(testState)
   return (
     <>
       <Wrapper>
@@ -74,7 +100,7 @@ function Product() {
                   fontSize: "13px",
                   margin: "0px 5px",
                 }}
-                to={"/collections/collection-products/product/:productType"}
+                to={"/collections/collection-products/product/espresso"}
               >
                 Espresso ???
               </NavLink>
@@ -90,7 +116,7 @@ function Product() {
                 }}
                 to={"#"}
               >
-                {allEspressoProducts?.[0]?.[id - 1].nume}
+                {allEspressoProducts?.[prodIndex]?.[id - 1].nume}
               </NavLink>
             </div>
           </div>
@@ -98,17 +124,17 @@ function Product() {
             <div className="product-wrap">
               <div className="product-wrap-image">
                 <img
-                  src={allEspressoProducts?.[0]?.[id - 1].imagine}
+                  src={allEspressoProducts?.[prodIndex]?.[id - 1].imagine}
                   alt="brazil-img"
                 ></img>
               </div>
               <div className="product-container-details">
                 <div className="product-details">
                   <h1 className="page-title">
-                    {allEspressoProducts?.[0]?.[id - 1].nume}
+                    {allEspressoProducts?.[prodIndex]?.[id - 1].nume}
                   </h1>
                   <span className="product-vendor">
-                    {allEspressoProducts?.[0]?.[id - 1].detalii}
+                    {allEspressoProducts?.[prodIndex]?.[id - 1].detalii}
                   </span>
                 </div>
                 <div className="product-form">
@@ -127,52 +153,62 @@ function Product() {
                     </div>
                   </div>
                   <div className="product-submit">
-                    <span className="product-price"> $ {allEspressoProducts?.[0]?.[id - 1].pret} </span>
+                    <span className="product-price">
+                      $ {allEspressoProducts?.[prodIndex]?.[id - 1].pret}
+                    </span>
+
                     <input
                       className="add-to-cart"
                       type="submit"
-                      value="0"
+                      value="Add"
+                      onClick={() => handleAddToCart()}
                     ></input>
                   </div>
                   <div className="product-options"></div>
                 </div>
                 <hr></hr>
                 <div className="products-description">
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th>Regiune</th>
-                        <th>Altitudine</th>
-                        <th>Varietate</th>
-                        <th>Procesare</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          {allEspressoProducts?.[0]?.[id - 1].descriere.regiune}
-                        </td>
-                        <td>
-                          {
-                            allEspressoProducts?.[0]?.[id - 1].descriere
-                              .altitudine
-                          }
-                        </td>
-                        <td>
-                          {
-                            allEspressoProducts?.[0]?.[id - 1].descriere
-                              .varietate
-                          }
-                        </td>
-                        <td>
-                          {
-                            allEspressoProducts?.[0]?.[id - 1].descriere
-                              .procesare
-                          }
-                        </td>
-                      </tr>
-                    </tbody>
-                  </Table>
+                  {productType === "microlot" ? null : (
+                    <Table>
+                      <thead>
+                        <tr>
+                          <th>Regiune</th>
+                          <th>Altitudine</th>
+                          <th>Varietate</th>
+                          <th>Procesare</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            {
+                              allEspressoProducts?.[prodIndex]?.[id - 1]
+                                .descriere.regiune
+                            }
+                          </td>
+                          <td>
+                            {
+                              allEspressoProducts?.[prodIndex]?.[id - 1]
+                                .descriere.altitudine
+                            }
+                          </td>
+                          <td>
+                            {
+                              allEspressoProducts?.[prodIndex]?.[id - 1]
+                                .descriere.varietate
+                            }
+                          </td>
+                          <td>
+                            {
+                              allEspressoProducts?.[prodIndex]?.[id - 1]
+                                .descriere.procesare
+                            }
+                          </td>
+                        </tr>
+                      </tbody>
+                    </Table>
+                  )}
+
                   <ul
                     style={{
                       border: "1px solid rgb(223, 217, 217)",
@@ -183,7 +219,10 @@ function Product() {
                       Descriere
                     </h3>
                     <p>
-                      {allEspressoProducts?.[0]?.[id - 1].descriere.informatii}
+                      {
+                        allEspressoProducts?.[prodIndex]?.[id - 1].descriere
+                          .informatii
+                      }
                     </p>
                   </ul>
                   <ul

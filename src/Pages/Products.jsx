@@ -2,9 +2,9 @@ import "../Components/cStyle.css/componentsStyle.css";
 import "../style/style.css";
 import Wrapper from "../layouts/Wrapper";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCoffeData, selectCoffeData } from "../store/coffeSlice";
-import { fetchTeaData } from "../store/teaSlice";
-import { fetchEquipmentsData } from "../store/equipmentsSlice";
+import { fetchCoffeData, selectCoffeData } from "../store/productsStore/coffeSlice";
+import { fetchTeaData } from "../store/productsStore/teaSlice";
+import { fetchEquipmentsData } from "../store/productsStore/equipmentsSlice";
 import { useEffect } from "react";
 import GenericProducts from "../Components/GenericProducts/GenericProducts";
 
