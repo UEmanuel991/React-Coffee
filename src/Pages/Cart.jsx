@@ -5,16 +5,12 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart.productsCart);
-  console.log( cartItems );
-  const { quantity } = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cart);
 
-  const testState = useSelector((state) => state.cart);
-  console.log(testState);
+  const removeDuplicates = [...new Set(cartItems.productsCart)];
+
   return (
     <Wrapper>
-      {quantity}
-
       <div className="cart page">
         <div className="page-header-links">
           <NavLink
@@ -65,75 +61,85 @@ const Cart = () => {
               </thead>
 
               <tbody>
-                {/* {cartItems.map((item) => ( */}
-                <tr>
-                  <td className="cart-item-image">
-                    <span style={{ padding: "12px", display: "flex" }}>X</span>
-                    <NavLink
-                      style={{
-                        margin: "30px 0px",
-                        textDecoration: "none",
-                        color: "black",
-                      }}
-                      // to={`/collections/collection-products/product/${item.productType}/${item.id}`}
-                    >
-                      <img
-                        style={{ width: "100px" }}
-                        className="page-container-img"
-                        src={""}
-                        alt={""}
-                      />
-                      <div
+                {removeDuplicates.map((product) => (
+                  <tr key={product.id}>
+                    <td className="cart-item-image">
+                      <NavLink
                         style={{
-                          textAlign: "left",
-                          marginLeft: "10px",
+                          margin: "30px 0px",
+                          textDecoration: "none",
+                          color: "black",
+                          display: "flex",
+                          gap: 5,
                         }}
+                        to={`/collections/collection-products/product/${product.productType}/${product.id}`}
                       >
-                        <h3
+                        <span style={{ padding: "12px", display: "flex" }}>
+                          {product.nume}
+                        </span>
+                        <img
+                          style={{ width: "100px" }}
+                          className="page-container-img"
+                          src={""}
+                          alt={""}
+                        />
+                        <div
                           style={{
-                            fontSize: "16px",
-                            fontWeight: "bold",
+                            textAlign: "left",
+                            marginLeft: "10px",
                           }}
                         >
-                          {/* {item.name} */}
-                        </h3>
-                      </div>
-                    </NavLink>
-                  </td>
-                  {/* <td style={{ fontSize: "16px" }}>{item.price}</td> */}
-                  <td>
-                    <input
-                      style={{
-                        width: "20px",
-                        textAlign: "center",
-                        border: "none",
-                        marginRight: "20px",
-                        fontSize: "16px",
-                      }}
-                      type="text"
-                      name="cantitate"
-                      value="1"
-                      onChange={(e) => console.log(e.target.value)}
-                    />
-                    <button
-                      style={{ border: "1px solid", width: "40px" }}
-                      className="btn"
-                    >
-                      -
-                    </button>
-                    <button
-                      style={{ border: "1px solid", width: "40px" }}
-                      className="btn"
-                    >
-                      +
-                    </button>
-                  </td>
-                  <td>
-                    <span style={{ fontSize: "16px" }} className="money">
-                      {/* {item.total} */}
-                    </span>
-                  </td>
-                </tr>
+                          <h3
+                            style={{
+                              fontSize: "16px",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {/* {item.name} */}
+                          </h3>
+                        </div>
+                      </NavLink>
+                    </td>
+                    {/* <td style={{ fontSize: "16px" }}>{item.price}</td> */}
+                    <td>
+                      <input
+                        style={{
+                          width: "20px",
+                          textAlign: "center",
+                          border: "none",
+                          marginRight: "20px",
+                          fontSize: "16px",
+                        }}
+                        type="text"
+                        name="cantitate"
+                        value="1"
+                        onChange={(e) => console.log(e.target.value)}
+                      />
+                      <button
+                        style={{ border: "1px solid", width: "40px" }}
+                        className="btn"
+                      >
+                        -
+                      </button>
+                      <button
+                        style={{ border: "1px solid", width: "40px" }}
+                        className="btn"
+                      >
+                        +
+                      </button>
+                    </td>
+                    <td>
+                      <span style={{ fontSize: "16px" }} className="money">
+                        {cartItems.productsCart.length}
+                      </span>
+                    </td>
+                    <td>
+                      <span style={{ fontSize: "16px" }} className="money">
+                        {/* {item.total} */}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

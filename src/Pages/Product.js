@@ -27,7 +27,8 @@ function Product() {
     dispatch(fetchCoffeData());
     dispatch(fetchTeaData());
     dispatch(fetchEquipmentsData());
-  }, [dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const allEspressoProducts = coffeData.map((products) => {
     return products[productType];
@@ -45,17 +46,11 @@ function Product() {
   };
   const prodIndex = getJsonIndex();
 
-  useEffect(() => {
-    dispatch(add());
-  }, [dispatch]);
-
   const handleAddToCart = () => {
     const productToAdd = allEspressoProducts?.[prodIndex]?.[id - 1];
     dispatch(add(productToAdd));
   };
 
-  // const testState = useSelector(state => state)
-  // console.log(testState)
   return (
     <>
       <Wrapper>
