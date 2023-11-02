@@ -8,12 +8,18 @@ import SearchImg from "../../assets/white-search-icon.svg";
 import CoffeLogo from "../../assets/Coffee_Shop.svg";
 import "./NavbarApp.css";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch} from "react-redux";
+import {currency} from '../../store/cartSlice'
 
 function NavbarApp(props) {
-  const { quantity } = useSelector((state) => state.cart)
+  const { totalQuantity, cartCurrency } = useSelector((state) => state.cart);
 
-  console.log();
+  const dispatch = useDispatch()
+
+  const handleChange = (value) => {
+    dispatch(currency(value))
+  };
+
   return (
     <Navbar expand="lg" className="navbar">
       <Container className="container-navbar">
@@ -154,14 +160,20 @@ function NavbarApp(props) {
                   transform: "translate(-85%, -160%)",
                 }}
               >
-                { quantity }
+                {totalQuantity}
               </div>
             </Button>
           </NavLink>
-          <select className="currency-selector">
-            <option>eur</option>
-            <option>ron</option>
-            <option>usd</option>
+          <select
+            onChange={(e) => handleChange(e.target.value)}
+            className="currency-selector"
+          >
+            {cartCurrency.options &&
+              cartCurrency.options.map((rate, index) => (
+                <option value={rate} key={index}>
+                  {rate}
+                </option>
+              ))}
           </select>
         </Navbar.Collapse>
       </Container>

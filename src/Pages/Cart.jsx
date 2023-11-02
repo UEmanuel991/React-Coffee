@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/style.css";
 import Wrapper from "../layouts/Wrapper";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { decrease, increase, getCartTotal, remove, } from "../store/cartSlice";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
-  const removeDuplicates = [...new Set(cartItems.productsCart)];
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [dispatch, cartItems]);
+  const displayProducts = cartItems.productsCart;
 
+  const handleDecreaseCart = (product) => {
+    dispatch(decrease(product));
+  };
+  const handleIncreaseCart = (product) => {
+    dispatch(increase(product));
+  };
+  const handleRemove = (product) => {
+    dispatch(remove(product));
+  };
+  console.log(cartItems.totalPrice)
+  console.log(cartItems.cartCurrency.stateCurrency)
+  
   return (
     <Wrapper>
       <div className="cart page">
@@ -61,9 +78,21 @@ const Cart = () => {
               </thead>
 
               <tbody>
-                {removeDuplicates.map((product) => (
+                {displayProducts.map((product) => (
                   <tr key={product.id}>
                     <td className="cart-item-image">
+                      <button
+                        style={{
+                          padding: "12px",
+                          display: "flex",
+                          background: "white",
+                          border: "none",
+                        }}
+                        type="button"
+                        onClick={() => handleRemove(product)}
+                      >
+                        x
+                      </button>
                       <NavLink
                         style={{
                           margin: "30px 0px",
@@ -74,14 +103,11 @@ const Cart = () => {
                         }}
                         to={`/collections/collection-products/product/${product.productType}/${product.id}`}
                       >
-                        <span style={{ padding: "12px", display: "flex" }}>
-                          {product.nume}
-                        </span>
                         <img
                           style={{ width: "100px" }}
                           className="page-container-img"
-                          src={""}
-                          alt={""}
+                          src={product.imagine}
+                          alt={product.nume}
                         />
                         <div
                           style={{
@@ -89,54 +115,53 @@ const Cart = () => {
                             marginLeft: "10px",
                           }}
                         >
+                          <p style={{ color: "#d9d1c9" }}>{product.detalii}</p>
                           <h3
                             style={{
                               fontSize: "16px",
                               fontWeight: "bold",
                             }}
                           >
-                            {/* {item.name} */}
+                            {product.nume}
                           </h3>
                         </div>
                       </NavLink>
                     </td>
-                    {/* <td style={{ fontSize: "16px" }}>{item.price}</td> */}
+                    <td style={{ fontSize: "16px" }}>{product.pret}</td>
                     <td>
-                      <input
-                        style={{
-                          width: "20px",
-                          textAlign: "center",
-                          border: "none",
-                          marginRight: "20px",
-                          fontSize: "16px",
-                        }}
-                        type="text"
-                        name="cantitate"
-                        value="1"
-                        onChange={(e) => console.log(e.target.value)}
-                      />
+                      <span
+                        style={{ fontSize: "16px", marginRight: "20px" }}
+                        className="money"
+                      >
+                        {product.cartQuantity}
+                      </span>
                       <button
                         style={{ border: "1px solid", width: "40px" }}
                         className="btn"
+                        onClick={() => handleDecreaseCart(product)}
                       >
                         -
                       </button>
                       <button
                         style={{ border: "1px solid", width: "40px" }}
                         className="btn"
+                        onClick={() => handleIncreaseCart(product)}
                       >
                         +
                       </button>
                     </td>
                     <td>
-                      <span style={{ fontSize: "16px" }} className="money">
-                        {cartItems.productsCart.length}
-                      </span>
-                    </td>
-                    <td>
-                      <span style={{ fontSize: "16px" }} className="money">
-                        {/* {item.total} */}
-                      </span>
+                      <p
+                        style={{
+                          width: "60px",
+                          textAlign: "center",
+                          border: "none",
+                          marginRight: "20px",
+                          fontSize: "16px",
+                        }}
+                      >
+                        {product.pret * product.cartQuantity}
+                      </p>
                     </td>
                   </tr>
                 ))}
@@ -165,14 +190,16 @@ const Cart = () => {
             </div>
             <div className="cart-checkout">
               <p className="cart-price">
-                <span
-                  className="money"
-                  data-currency-ron="150,00 lei"
-                  data-currency-eur="&amp;euro;30.26"
-                  data-currency="EUR"
-                  data-currency-usd="$32.45"
-                >
-                  €30.26
+                <span className="money">
+                  {cartItems.cartCurrency.stateCurrency === "ron"
+                    ? `Lei ${cartItems.totalPrice * 1 }`
+                    : ""}
+                  {cartItems.cartCurrency.stateCurrency === "eur"
+                    ? `€ ${cartItems.totalPrice / 4.9}`
+                    : ""}
+                  {cartItems.cartCurrency.stateCurrency === "usd"
+                    ? `$ ${cartItems.totalPrice / 4.3}`
+                    : ""}     
                 </span>
               </p>
               <input
@@ -191,7 +218,6 @@ const Cart = () => {
                 name="update"
                 value="UPDATE"
                 // // eslint-disable-next-line react/jsx-no-duplicate-props
-                // className="secondary"
               ></input>
               <input
                 style={{
@@ -227,7 +253,6 @@ const Cart = () => {
                 to={""}
               >
                 <label htmlFor="vehicle1">
-                  {" "}
                   Am citit și am luat la cunoștință Politica privind prelucrarea
                   datelor cu caracter personal
                 </label>

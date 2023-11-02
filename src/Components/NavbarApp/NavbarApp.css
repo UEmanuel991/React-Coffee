@@ -29,9 +29,10 @@
   .currency-selector {
     display: flex;
     list-style: none;
-    /* color: white;
-    background: black; */
+    color: white;
+    background: black;
     border-radius: 5px;
+    width: 60px;
   }
   
   .d-flex {

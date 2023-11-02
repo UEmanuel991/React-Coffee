@@ -48,7 +48,7 @@ function Product() {
 
   const handleAddToCart = () => {
     const productToAdd = allEspressoProducts?.[prodIndex]?.[id - 1];
-    dispatch(add(productToAdd));
+    dispatch(add(productToAdd)); //productToAdd este Action din cartSLice.js
   };
 
   return (
@@ -143,7 +143,7 @@ function Product() {
                         name="quantity"
                         value="1"
                         id="quantity"
-                        onChange={(e) => console.log(e.trget.value)}
+                        onChange={(e) => console.log(e.target.value)}
                       ></input>
                     </div>
                   </div>
@@ -156,7 +156,7 @@ function Product() {
                       className="add-to-cart"
                       type="submit"
                       value="Add"
-                      onClick={() => handleAddToCart()}
+                      onClick={() => handleAddToCart(allEspressoProducts?.[prodIndex]?.[id - 1])}
                     ></input>
                   </div>
                   <div className="product-options"></div>

@@ -48,7 +48,7 @@
           "id": 4,
           "nume": "ETHIOPIA KERAMO",
           "detalii": "jasmine, vanilla, citrus",
-          "pret": 14.0,
+          "pret": 14.04,
           "descriere": {
             "regiune": "SIDAMA",
             "altitudine": "2260-2360M",
@@ -62,7 +62,7 @@
           "id": 5,
           "nume": "KENYA TEGU",
           "detalii": "black currant, citrus, caramel",
-          "pret": 10.0,
+          "pret": 10.03,
           "descriere": {
             "regiune": "Kirinyaga",
             "altitudine": "1800M",
@@ -108,7 +108,7 @@
           "id": 3,
           "nume": "ETHIOPIA BUKU HAMBELA",
           "detalii": "blueberry, floral, apricot",
-          "pret": 95.0,
+          "pret": 95.81,
           "descriere": {
             "regiune": "GUJI",
             "altitudine": "2275M",
@@ -122,7 +122,7 @@
           "id": 4,
           "nume": "YEMEN ANS XI",
           "detalii": "exotic, rum, floral",
-          "pret": 285.0,
+          "pret": 285.4,
           "descriere": {
             "regiune": "DHAMAR",
             "altitudine": "2000M",
