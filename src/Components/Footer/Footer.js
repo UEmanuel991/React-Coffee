@@ -68,7 +68,9 @@ function Footer() {
                     </h3>
                     <ul style={{ listStyle: "none" }}>
                       <li>
-                        <NavLink to={"/collections/collection-products"}>Cafea</NavLink>
+                        <NavLink to={"/collections/collection-products"}>
+                          Cafea
+                        </NavLink>
                       </li>
                       <li>
                         <NavLink to={""}>Ceai</NavLink>

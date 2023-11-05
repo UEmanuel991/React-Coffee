@@ -4,10 +4,7 @@ import { COFFEE } from "../utils/utils";
 import Wrapper from "../layouts/Wrapper";
 import { NavLink } from "react-router-dom";
 
-//# 3 RANDATA ca CollectionsProducts path: /collections/collection-products
-
 function CollectionsProducts() {
- 
   return (
     <>
       <Wrapper>
@@ -74,7 +71,7 @@ function CollectionsProducts() {
                   to={"/collections/collection-products/product/espresso"}
                 >
                   ESPRESSO
-                  </NavLink>
+                </NavLink>
                 &nbsp; •&nbsp;&nbsp;
                 <NavLink
                   style={{

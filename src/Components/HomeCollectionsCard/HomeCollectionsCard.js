@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-// import { HOMEPAGE_COLLECTIONS } from "../../utils/utils";
 import { NavLink } from "react-router-dom";
 
 function HomeCollectionsCard({ detailsProd }) {

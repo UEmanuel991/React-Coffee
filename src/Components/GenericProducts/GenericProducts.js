@@ -3,16 +3,16 @@ import "../../style/style.css";
 import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
-//pagina de randare toate produsele!!!!!!
+import { useSelector } from "react-redux";
 
 function GenerateProductsCards(productDetails) {
- 
   const { productType } = useParams();
+  const cartItems = useSelector((state) => state.cart);
+
   return (
     <>
       {productDetails &&
         productDetails.map((product) => {
- 
           return (
             product &&
             product.map((p, index) => (
@@ -48,7 +48,18 @@ function GenerateProductsCards(productDetails) {
                     <Card.Text
                       style={{ display: "flex", justifyContent: "center" }}
                     >
-                      $ {p.pret}
+                      {cartItems &&
+                      cartItems.cartCurrency.stateCurrency === "ron"
+                        ? `Ron ${Number(p.pret * 1).toFixed(2)}`
+                        : ""}
+                      {cartItems &&
+                      cartItems.cartCurrency.stateCurrency === "eur"
+                        ? `€ ${Number(p.pret / 4.9).toFixed(2)}`
+                        : ""}
+                      {cartItems &&
+                      cartItems.cartCurrency.stateCurrency === "usd"
+                        ? `$ ${Number(p.pret / 4.3).toFixed(2)}`
+                        : ""}
                     </Card.Text>
                   </Card.Body>
                 </Card>

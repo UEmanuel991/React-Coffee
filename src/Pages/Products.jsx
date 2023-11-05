@@ -2,29 +2,20 @@ import "../Components/cStyle.css/componentsStyle.css";
 import "../style/style.css";
 import Wrapper from "../layouts/Wrapper";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCoffeData, selectCoffeData } from "../store/productsStore/coffeSlice";
-import { fetchTeaData } from "../store/productsStore/teaSlice";
-import { fetchEquipmentsData } from "../store/productsStore/equipmentsSlice";
+import {
+  fetchCoffeData,
+  selectCoffeData,
+} from "../store/productsStore/coffeSlice";
 import { useEffect } from "react";
 import GenericProducts from "../Components/GenericProducts/GenericProducts";
 
-// # 4  path: /collections/collection-products/product/:productType
-
 function Products() {
   const dispatch = useDispatch();
-  // const { productType } = useParams();
   const coffeData = useSelector(selectCoffeData);
 
   useEffect(() => {
     dispatch(fetchCoffeData());
-    dispatch(fetchTeaData);
-    dispatch(fetchEquipmentsData);
   }, [dispatch]);
-
-  useEffect(() => {
-    // console.log(productType);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const allEspressoProducts = coffeData.map((products) => {
     if (products > 0) {

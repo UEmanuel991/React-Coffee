@@ -5,9 +5,6 @@ import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectio
 import { COLLECTIONS } from "../utils/utils";
 import { NavLink } from "react-router-dom";
 
-//#2 RANDATA COLLECTIONS path:/collections
-//RANDATA STATIC
-
 function Collections() {
   const collectionsData = COLLECTIONS;
   return (

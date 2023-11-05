@@ -1,31 +1,19 @@
 import React, { useEffect } from "react";
 import "../style/style.css";
 import Wrapper from "../layouts/Wrapper";
+import CartTable from "../Components/CartTable/CartTable";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { decrease, increase, getCartTotal, remove, } from "../store/cartSlice";
+import { getCartTotal } from "../store/cartSlice";
 
-const Cart = () => {
+function Cart() {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCartTotal());
   }, [dispatch, cartItems]);
-  const displayProducts = cartItems.productsCart;
 
-  const handleDecreaseCart = (product) => {
-    dispatch(decrease(product));
-  };
-  const handleIncreaseCart = (product) => {
-    dispatch(increase(product));
-  };
-  const handleRemove = (product) => {
-    dispatch(remove(product));
-  };
-  console.log(cartItems.totalPrice)
-  console.log(cartItems.cartCurrency.stateCurrency)
-  
   return (
     <Wrapper>
       <div className="cart page">
@@ -67,106 +55,7 @@ const Cart = () => {
         </h1>
         <div className="cart-checkout-container">
           <div className="tabel-cart">
-            <table className="tabel">
-              <thead>
-                <tr>
-                  <th style={{ fontSize: "16px" }}>Product</th>
-                  <th style={{ fontSize: "16px" }}>Price</th>
-                  <th style={{ fontSize: "16px" }}>Quantity</th>
-                  <th style={{ fontSize: "16px" }}>Total</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {displayProducts.map((product) => (
-                  <tr key={product.id}>
-                    <td className="cart-item-image">
-                      <button
-                        style={{
-                          padding: "12px",
-                          display: "flex",
-                          background: "white",
-                          border: "none",
-                        }}
-                        type="button"
-                        onClick={() => handleRemove(product)}
-                      >
-                        x
-                      </button>
-                      <NavLink
-                        style={{
-                          margin: "30px 0px",
-                          textDecoration: "none",
-                          color: "black",
-                          display: "flex",
-                          gap: 5,
-                        }}
-                        to={`/collections/collection-products/product/${product.productType}/${product.id}`}
-                      >
-                        <img
-                          style={{ width: "100px" }}
-                          className="page-container-img"
-                          src={product.imagine}
-                          alt={product.nume}
-                        />
-                        <div
-                          style={{
-                            textAlign: "left",
-                            marginLeft: "10px",
-                          }}
-                        >
-                          <p style={{ color: "#d9d1c9" }}>{product.detalii}</p>
-                          <h3
-                            style={{
-                              fontSize: "16px",
-                              fontWeight: "bold",
-                            }}
-                          >
-                            {product.nume}
-                          </h3>
-                        </div>
-                      </NavLink>
-                    </td>
-                    <td style={{ fontSize: "16px" }}>{product.pret}</td>
-                    <td>
-                      <span
-                        style={{ fontSize: "16px", marginRight: "20px" }}
-                        className="money"
-                      >
-                        {product.cartQuantity}
-                      </span>
-                      <button
-                        style={{ border: "1px solid", width: "40px" }}
-                        className="btn"
-                        onClick={() => handleDecreaseCart(product)}
-                      >
-                        -
-                      </button>
-                      <button
-                        style={{ border: "1px solid", width: "40px" }}
-                        className="btn"
-                        onClick={() => handleIncreaseCart(product)}
-                      >
-                        +
-                      </button>
-                    </td>
-                    <td>
-                      <p
-                        style={{
-                          width: "60px",
-                          textAlign: "center",
-                          border: "none",
-                          marginRight: "20px",
-                          fontSize: "16px",
-                        }}
-                      >
-                        {product.pret * product.cartQuantity}
-                      </p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <CartTable />
           </div>
           <div className="checkout-container">
             <div className="cart-tools">
@@ -191,15 +80,18 @@ const Cart = () => {
             <div className="cart-checkout">
               <p className="cart-price">
                 <span className="money">
-                  {cartItems.cartCurrency.stateCurrency === "ron"
-                    ? `Lei ${cartItems.totalPrice * 1 }`
+                  {cartItems.totalPrice &&
+                  cartItems.cartCurrency.stateCurrency === "ron"
+                    ? `Ron ${Number(cartItems.totalPrice * 1).toFixed(2)}`
                     : ""}
-                  {cartItems.cartCurrency.stateCurrency === "eur"
-                    ? `€ ${cartItems.totalPrice / 4.9}`
+                  {cartItems.totalPrice &&
+                  cartItems.cartCurrency.stateCurrency === "eur"
+                    ? `€ ${Number(cartItems.totalPrice / 4.9).toFixed(2)}`
                     : ""}
-                  {cartItems.cartCurrency.stateCurrency === "usd"
-                    ? `$ ${cartItems.totalPrice / 4.3}`
-                    : ""}     
+                  {cartItems.totalPrice &&
+                  cartItems.cartCurrency.stateCurrency === "usd"
+                    ? `$ ${Number(cartItems.totalPrice / 4.3).toFixed(2)}`
+                    : ""}
                 </span>
               </p>
               <input
@@ -263,5 +155,5 @@ const Cart = () => {
       </div>
     </Wrapper>
   );
-};
+}
 export default Cart;

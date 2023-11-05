@@ -8,16 +8,24 @@ import SearchImg from "../../assets/white-search-icon.svg";
 import CoffeLogo from "../../assets/Coffee_Shop.svg";
 import "./NavbarApp.css";
 import { NavLink } from "react-router-dom";
-import { useSelector , useDispatch} from "react-redux";
-import {currency} from '../../store/cartSlice'
+import { useSelector, useDispatch } from "react-redux";
+import { currency } from "../../store/cartSlice";
 
 function NavbarApp(props) {
   const { totalQuantity, cartCurrency } = useSelector((state) => state.cart);
 
-  const dispatch = useDispatch()
+  //cum sa randez Currency on Select din cartCurrency State???
+  const appCurrency = cartCurrency.stateCurrency;
 
+  const allCurrency = [
+    { label: "Ron", value: "ron" },
+    { label: "Eur", value: "eur" },
+    { label: "Usd", value: "usd" },
+  ];
+
+  const dispatch = useDispatch();
   const handleChange = (value) => {
-    dispatch(currency(value))
+    dispatch(currency(value));
   };
 
   return (
@@ -165,13 +173,14 @@ function NavbarApp(props) {
             </Button>
           </NavLink>
           <select
+            defaultValue={"ron"}
             onChange={(e) => handleChange(e.target.value)}
             className="currency-selector"
           >
-            {cartCurrency.options &&
-              cartCurrency.options.map((rate, index) => (
-                <option value={rate} key={index}>
-                  {rate}
+            {allCurrency &&
+              allCurrency.map((currency, index) => (
+                <option value={currency.value} key={index}>
+                  {currency.label}
                 </option>
               ))}
           </select>

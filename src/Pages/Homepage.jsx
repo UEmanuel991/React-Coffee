@@ -5,17 +5,13 @@ import NavbarApp from "../Components/NavbarApp/NavbarApp";
 import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
 import { HOMEPAGE } from "../utils/utils";
 import { useState } from "react";
-// import { HOMEPAGE_COLLECTIONS } from "../utils/utils";
-
-// # 1
 
 const Homepage = ({ theme }) => {
   // eslint-disable-next-line no-unused-vars
   const [navbarAppTheme, setNavbarApp] = useState("light");
-  const homepageDatas = HOMEPAGE
+  const homepageDatas = HOMEPAGE;
   return (
     <div className="homepage">
-
       <div style={{ backgroundColor: "black" }} className="nav-home">
         <NavbarApp
           className={"navdropdown btn "}
@@ -40,9 +36,7 @@ const Homepage = ({ theme }) => {
             <h2>
               shop <br></br> coffee
             </h2>
-            
-            <HomeCollectionsCard detailsProd = {homepageDatas} />
-           
+            <HomeCollectionsCard detailsProd={homepageDatas} />
           </div>
         </div>
         <div className="homepage-footer">
