@@ -43,10 +43,9 @@ function ProductCard() {
   const handleAddToCart = () => {
     const productToAdd = allEspressoProducts?.[prodIndex]?.[id - 1];
     dispatch(add(productToAdd)); //productToAdd este Action din cartSLice.js
+   
   };
-
   const handleChangeValue = (e) => {
-    e.preventDefault();
     const newValue = parseFloat(e.target.value);
     dispatch(setInputValue(newValue));
   };

@@ -12,28 +12,22 @@ const route = createBrowserRouter([
   {
     path: "/",
     element: <Homepage />,
-  },
-  {
+  },{
     path: "/collections",
     element: <Collections />,
-  },
-  {
+  },{
     path: "/collections/collection-products",
     element: <CollectionsProducts />,
-  },
-  {
+  },{
     path: "/collections/collection-products/product/:productType",
     element: <Products />,
-  },
-  {
+  },{
     path: "/collections/collection-products/product/:productType/:id",
     element: <Product />,
-  },
-  {
+  },{
     path: "/collections/cart",
     element: <Cart />,
-  },
-  {
+  },{
     path: "/collections/cont",
     element: <Cont />,
   },

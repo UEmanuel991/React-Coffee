@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   productsCart: [],
-  totalPrice: 0, //pretul produselor
-  totalQuantity: 0, //numarul de produse
+  totalPrice: 0,
+  totalQuantity: 0,
   inputValue: 0,
   cartCurrency: {
     stateCurrency: "ron",
@@ -18,7 +18,6 @@ const cartSlice = createSlice({
     },
     currency: (state, action) => {
       state.cartCurrency.stateCurrency = action.payload;
-
       if (state.cartCurrency.stateCurrency === "eur") {
         state.totalPrice = state.totalPrice / 4.9;
       } else if (state.cartCurrency.stateCurrency === "ron") {
@@ -57,7 +56,6 @@ const cartSlice = createSlice({
         (item) =>
           item.id === action.payload.id && item.nume === action.payload.nume
       );
-
       if (indexToRemove !== -1) {
         state.productsCart.splice(indexToRemove, 1);
       }
@@ -92,15 +90,13 @@ const cartSlice = createSlice({
         state.productsCart = nextCartItems;
       }
     },
-    getCartTotal(state, action) {
+    getCartTotal(state) {
       let { total, quantity } = state.productsCart.reduce(
         (cartTotal, cartItem) => {
           const { pret, cartQuantity } = cartItem;
           const itemTotal = pret * cartQuantity;
-
           cartTotal.total += itemTotal;
           cartTotal.quantity += cartQuantity;
-
           return cartTotal;
         },
         {

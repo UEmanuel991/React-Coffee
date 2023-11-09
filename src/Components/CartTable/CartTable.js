@@ -78,7 +78,17 @@ function CartTable() {
                   </div>
                 </NavLink>
               </td>
-              <td style={{ fontSize: "16px" }}>{product.pret}</td>
+              <td style={{ fontSize: "16px" }}>
+                {cartItems.cartCurrency.stateCurrency === "ron"
+                  ? `Lei ${Number(product.pret).toFixed(2)}`
+                  : ""}
+                {cartItems.cartCurrency.stateCurrency === "eur"
+                  ? `€ ${Number(product.pret / 4.9).toFixed(2)}`
+                  : ""}
+                {cartItems.cartCurrency.stateCurrency === "usd"
+                  ? `$ ${Number(product.pret / 4.3).toFixed(2)}`
+                  : ""}
+              </td>
               <td>
                 <span
                   style={{ fontSize: "16px", marginRight: "20px" }}

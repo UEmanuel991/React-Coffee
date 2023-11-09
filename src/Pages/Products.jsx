@@ -17,24 +17,16 @@ function Products() {
     dispatch(fetchCoffeData());
   }, [dispatch]);
 
-  const allEspressoProducts = coffeData.map((products) => {
-    if (products > 0) {
-      return products;
-    }
-    return products.espresso;
-  });
-  const allFiltruProducts = coffeData.map((products) => {
-    if (products > 0) {
-      return products;
-    }
-    return products.filtru;
-  });
-  const allMicrolotProducts = coffeData.map((products) => {
-    if (products > 0) {
-      return products;
-    }
-    return products.microlot;
-  });
+  const allEspressoProducts = coffeData.map((products) =>
+    products > 0 ? products : products.espresso
+  );
+  const allFiltruProducts = coffeData.map((products) =>
+    products > 0 ? products : products.filtru
+  );
+  const allMicrolotProducts = coffeData.map((products) =>
+    products > 0 ? products : products.microlot
+  );
+
   return (
     <>
       <Wrapper>

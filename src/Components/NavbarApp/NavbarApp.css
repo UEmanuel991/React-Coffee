@@ -13,9 +13,10 @@
   }
   .nav-logo {
     display: flex;
-    width: 220px;
+    width: 160px;
     margin-left: 10px;
-    height: 16vh;
+    height: 10vh;
+    margin-top: 24px;
   }
 .navdropdownbar {
   margin-left: 4px;

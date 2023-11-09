@@ -26,9 +26,7 @@ function CardComp() {
             if (data.cafea[0] && path) {
               setCafea(data.cafea); //ASTA TREBUIE PUSA PE ULTIMA PAGINA CU UN SINGUR PRODUS
               if (data.cafea && data.cafea.length > 0) {
-                // console.log(data.cafea[0].espresso[0].nume)
                 if (data.cafea[0].espresso[0].nume === path) {
-                  //de vazut cum trimit path-ul
                   setCafea(data.cafea[0].espresso[0].nume);
                 }
               }

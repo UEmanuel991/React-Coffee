@@ -9,6 +9,10 @@ function GenerateProductsCards(productDetails) {
   const { productType } = useParams();
   const cartItems = useSelector((state) => state.cart);
 
+  // const filteredProducts = productDetails.filter((product) =>
+  //   product === ""
+  // );
+
   return (
     <>
       {productDetails &&
@@ -35,7 +39,6 @@ function GenerateProductsCards(productDetails) {
                     src={p.imagine}
                     alt="logos"
                   />
-
                   <Card.Body>
                     <Card.Title className="card-text-content">
                       {p.nume}

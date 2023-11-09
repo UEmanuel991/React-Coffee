@@ -5,16 +5,19 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import SearchImg from "../../assets/white-search-icon.svg";
-import CoffeLogo from "../../assets/Coffee_Shop.svg";
+import CoffeLogo from "../../assets/react-coffee-logo.png";
 import "./NavbarApp.css";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { currency } from "../../store/cartSlice";
+import { searchProduct } from "../../store/productsStore/coffeSlice";
 
 function NavbarApp(props) {
   const { totalQuantity, cartCurrency } = useSelector((state) => state.cart);
 
+
   //cum sa randez Currency on Select din cartCurrency State???
+  // eslint-disable-next-line no-unused-vars
   const appCurrency = cartCurrency.stateCurrency;
 
   const allCurrency = [
@@ -27,6 +30,11 @@ function NavbarApp(props) {
   const handleChange = (value) => {
     dispatch(currency(value));
   };
+
+  const handleSearch = (value) => {
+    console.log(value)
+    dispatch(searchProduct(value))
+  }
 
   return (
     <Navbar expand="lg" className="navbar">
@@ -133,6 +141,7 @@ function NavbarApp(props) {
               placeholder="Cauta"
               className="me-1 "
               aria-label="Search"
+              onChange={(e) => handleSearch(e.target.value)}
             />
           </Form>
           <NavLink to={"/collections/cart"}>

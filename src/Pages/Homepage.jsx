@@ -5,11 +5,18 @@ import NavbarApp from "../Components/NavbarApp/NavbarApp";
 import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
 import { HOMEPAGE } from "../utils/utils";
 import { useState } from "react";
+import { selectCoffeData } from "../store/productsStore/coffeSlice";
+import { useSelector } from "react-redux";
+
 
 const Homepage = ({ theme }) => {
   // eslint-disable-next-line no-unused-vars
   const [navbarAppTheme, setNavbarApp] = useState("light");
   const homepageDatas = HOMEPAGE;
+
+  const filteredProducts = useSelector(selectCoffeData)
+
+  console.log(filteredProducts)
   return (
     <div className="homepage">
       <div style={{ backgroundColor: "black" }} className="nav-home">
