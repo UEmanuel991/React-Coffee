@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap");
+* {
+  box-sizing: border-box;
+}
+/* Collections-Products */
+
+.header-navlinks {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  margin: 0 5px;
+}
+.divider {
+  font-size: 14px;
+}
+.subnavlink {
+  text-decoration: none;
+  color: #b3a394;
+  font-size: 14px;
+  margin: 0 5px;
+}
+.collection-title {
+  margin-bottom: 50px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+/*collections*/
+
+.card-text-content {
+  text-align: center;
+}
+.img-desktop {
+  max-width: 99vw;
+  display: flex;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  margin-top: 0;
+}
+.container-fluid {
+  margin-right: 120px !important;
+}
+.home-page-content {
+  top: 10%;
+  left: 5%;
+  font-size: 12vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0px;
+}
+.home-page-p {
+  color: rgba(255, 143, 108, 255);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0 !important;
+}
+.shop-coffe-mainpage {
+  background-color: #fff;
+  display: flex;
+}
+
+/*******************************************/
+/* Page CollectionsProducts */
+
+.coffe-container {
+  width: 100vw;
+}
+.page-header-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.page-img {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.collections-products-render {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 100px 0px;
+}
+.page-container-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.page-container-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding-right: 6px;
+}
+
+.page-container-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+/******************************************/
+
+/*Product - page*/
+.main-header-wrapper {
+  margin-bottom: 40px;
+}
+.main-header-wrapper hr {
+  margin: 40px;
+}
+.page-header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 60px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+}
+.page-header-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.main-content-wrapper {
+  font-family: Inter !important;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*****************************/
+
+/* Page Cart.js */
+.card-subtitle {
+  margin-bottom: 6px !important;
+  color: #b3a394 !important;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 13px !important;
+  letter-spacing: 0.1em;
+  justify-content: center;
+  display: flex;
+  align-items: flex-start;
+}
+.cart-checkout-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30px;
+}
+.cart-instructions p {
+  margin-top: 40px;
+}
+
+.submit-update {
+  color: white !important;
+  background: #c3bdb7;
+  font-family: Source Sans Pro, sans-serif;
+  font-weight: 700;
+  display: inline-block;
+  padding: 15px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+}
+.cart-checkout {
+  margin-right: 10px;
+  text-align: right;
+  font-size: 20px;
+  line-height: 32px;
+  color: #2c2723;
+  font-family: Inter I !important;
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 97%;
+}
+.cart-price {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+.total-cart-money {
+  font-size: 20px;
+  line-height: 32px;
+  color: #2c2723;
+}
+.cart-tools {
+  width: 60%;
+}
+.cart-update-button {
+  color: white;
+  background: rgb(195, 189, 183);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 5px;
+  font-size: 13px;
+  border: none;
+}
+.cart-checkout-button {
+  color: white;
+  background: #686868;
+  font-family: "Source Sans Pro, sans-serif";
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 5px;
+  font-size: 13px;
+  border: none;
+}
+.text-area {
+  width: 100%;
+  height: 140px;
+  border-radius: 5px;
+  color: rgb(82, 82, 82);
+  border: 1px solid rgb(229, 229, 229);
+  resize: both;
+}
+

@@ -1,5 +1,5 @@
 import React from "react";
-import "../style/style.css";
+import "../PagesStyle/style.css";
 import { COFFEE } from "../utils/utils";
 import Wrapper from "../layouts/Wrapper";
 import { NavLink } from "react-router-dom";
@@ -9,99 +9,46 @@ function CollectionsProducts() {
     <>
       <Wrapper>
         <div className="coffe-container">
-          <div className="coffe-container-titles">
-            <div className="page-header-links">
+        <div className="main-header-wrapper" >
+          <hr/>
+        </div>
+          <div className="page-header-links">
+            <NavLink className="header-navlinks" to={"/"}>
+              Home
+            </NavLink>
+            <span className="divider">/</span>
+            <NavLink className="header-navlinks" to={"/collections"}>
+              Shop
+            </NavLink>
+            <span className="divider">/</span>
+            <span className="subnavlink">Cafea</span>
+          </div>
+          <h1 className="collection-title">CAFEA</h1>
+          <div className="page-img">
+            <div className="page-container-links">
               <NavLink
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  fontSize: "14px",
-                  margin: "0px 5px",
-                }}
-                to={"/"}
+                className="header-navlinks"
+                to={"/collections/collection-products/product/espresso"}
               >
-                Home
+                ESPRESSO
               </NavLink>
-              <span style={{ fontSize: "14px" }} className="divider">
-                /
-              </span>
+              &nbsp; •&nbsp;&nbsp;
               <NavLink
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  fontSize: "14px",
-                  margin: "0px 5px",
-                }}
-                to={"/collections"}
+                className="header-navlinks"
+                to={"/collections/collection-products/product/filtru"}
               >
-                Shop
+                FILTRU &nbsp; •&nbsp;&nbsp;
               </NavLink>
-              <span style={{ fontSize: "14px" }} className="divider">
-                /
-              </span>
-              <span
-                style={{
-                  textDecoration: "none",
-                  color: "#b3a394",
-                  fontSize: "14px",
-                  margin: "0px 5px",
-                }}
+              <NavLink
+                className="header-navlinks"
+                to={"/collections/collection-products/product/microlot"}
               >
-                Cafea
-              </span>
+                MICROLOT &nbsp; •&nbsp;&nbsp;
+              </NavLink>
             </div>
-            <h1
-              style={{
-                marginBottom: "50px",
-                fontSize: "30px",
-                fontWeight: "400",
-              }}
-            >
-              CAFEA
-            </h1>
-            <div className="page-img">
-              <div className="page-container-links">
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    fontSize: "14px",
-                    margin: "0px 5px",
-                  }}
-                  to={"/collections/collection-products/product/espresso"}
-                >
-                  ESPRESSO
-                </NavLink>
-                &nbsp; •&nbsp;&nbsp;
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    fontSize: "14px",
-                    margin: "0px 5px",
-                  }}
-                  to={"/collections/collection-products/product/filtru"}
-                >
-                  FILTRU &nbsp; •&nbsp;&nbsp;
-                </NavLink>
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                    color: "black",
-                    fontSize: "14px",
-                    margin: "0px 5px",
-                  }}
-                  to={"/collections/collection-products/product/microlot"}
-                >
-                  MICROLOT &nbsp; •&nbsp;&nbsp;
-                </NavLink>
-              </div>
+            <div className="collections-products-render">
               {COFFEE.map((e) => (
-                <div
-                  style={{ display: "flex" }}
-                  key={e.id}
-                  className="page-container-images"
-                >
+                <div key={e.id} className="page-container-images">
                   <NavLink to={e.link}>
                     <img
                       className="page-container-img"

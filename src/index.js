@@ -21,3 +21,9 @@ ReactDOM.render(
 );
 
 reportWebVitals();
+
+
+/* 
+pentru a porni baza de date json:
+npx json-server --watch db/db.json --port 3110 
+*/

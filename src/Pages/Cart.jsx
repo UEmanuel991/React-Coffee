@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../style/style.css";
+import "../PagesStyle/style.css";
 import Wrapper from "../layouts/Wrapper";
 import CartTable from "../Components/CartTable/CartTable";
 import { NavLink } from "react-router-dom";
@@ -16,43 +16,18 @@ function Cart() {
 
   return (
     <Wrapper>
+      <div className="main-header-wrapper">
+        <hr />
+      </div>
       <div className="cart page">
         <div className="page-header-links">
-          <NavLink
-            to={"/"}
-            style={{
-              textDecoration: "none",
-              color: "black",
-              fontSize: "14px",
-              margin: "0px 5px",
-            }}
-          >
+          <NavLink className="header-navlinks" to={"/"}>
             Home
           </NavLink>
-          <span style={{ fontSize: "14px" }} className="divider">
-            /
-          </span>
-          <span
-            style={{
-              textDecoration: "none",
-              color: "#b3a394",
-              fontSize: "14px",
-              margin: "0px 5px",
-            }}
-          >
-            Cart
-          </span>
+          <span className="divider">/</span>
+          <span className="subnavlink">Cart</span>
         </div>
-        <h1
-          style={{
-            marginBottom: "50px",
-            fontSize: "30px",
-            fontWeight: "400",
-            letterSpacing: "0.2rem",
-          }}
-        >
-          CART
-        </h1>
+        <h1 className="collection-title">CART</h1>
         <div className="cart-checkout-container">
           <div className="tabel-cart">
             <CartTable />
@@ -60,26 +35,15 @@ function Cart() {
           <div className="checkout-container">
             <div className="cart-tools">
               <div className="cart-instructions">
-                <p style={{ marginTop: "40px" }}>
+                <p>
                   Observatii comanda (optional)
                 </p>
-                <textarea
-                  name="note"
-                  rows={4}
-                  style={{
-                    width: "600px",
-                    resize: "both",
-                    height: "140px",
-                    borderRadius: "5px",
-                    color: "#525252",
-                    border: "1px solid #e5e5e5",
-                  }}
-                ></textarea>
+                <textarea className="text-area" name="note" rows={4}></textarea>
               </div>
             </div>
             <div className="cart-checkout">
               <p className="cart-price">
-                <span className="money">
+                <span className="total-cart-money">
                   {cartItems.totalPrice &&
                   cartItems.cartCurrency.stateCurrency === "ron"
                     ? `Ron ${Number(cartItems.totalPrice * 1).toFixed(2)}`
@@ -95,37 +59,11 @@ function Cart() {
                 </span>
               </p>
               <input
-                className="m-1"
-                style={{
-                  color: "white",
-                  background: "#c3bdb7",
-                  fontFamily: "Source Sans Pro, sans-serif",
-                  fontWeight: "700",
-                  padding: "15px 20px",
-                  borderRadius: "5px",
-                  fontSize: "14px",
-                  border: "none",
-                }}
-                type="submit"
-                name="update"
-                value="UPDATE"
-                // // eslint-disable-next-line react/jsx-no-duplicate-props
-              ></input>
-              <input
-                style={{
-                  color: "white",
-                  background: "#686868",
-                  fontFamily: "Source Sans Pro, sans-serif",
-                  fontWeight: "700",
-                  padding: "15px 20px",
-                  borderRadius: "5px",
-                  fontSize: "14px",
-                  border: "none",
-                }}
+                className="cart-checkout-button"
                 type="submit"
                 name="checkout"
                 value="CHECKOUT"
-              ></input>
+              />
             </div>
           </div>
           <div className="checked-input mt-4 mb-4">
@@ -136,14 +74,7 @@ function Cart() {
                 name="vehicle1"
                 value="Bike"
               ></input>
-              <NavLink
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  marginLeft: "5px",
-                }}
-                to={""}
-              >
+              <NavLink className="header-navlinks" to={""}>
                 <label htmlFor="vehicle1">
                   Am citit și am luat la cunoștință Politica privind prelucrarea
                   datelor cu caracter personal

@@ -1,40 +1,28 @@
-import "../style/style.css";
-import BackgroundVideo from "../Components/Background/BackgroundVideo";
+import "../PagesStyle/style.css";
 import Footer from "../Components/Footer/Footer";
 import NavbarApp from "../Components/NavbarApp/NavbarApp";
 import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
+import HomeBgImage from "../assets/desktop.webp";
 import { HOMEPAGE } from "../utils/utils";
 import { useState } from "react";
-import { selectCoffeData } from "../store/productsStore/coffeSlice";
-import { useSelector } from "react-redux";
-
 
 const Homepage = ({ theme }) => {
   // eslint-disable-next-line no-unused-vars
   const [navbarAppTheme, setNavbarApp] = useState("light");
   const homepageDatas = HOMEPAGE;
 
-  const filteredProducts = useSelector(selectCoffeData)
-
-  console.log(filteredProducts)
   return (
     <div className="homepage">
-      <div style={{ backgroundColor: "black" }} className="nav-home">
-        <NavbarApp
-          className={"navdropdown btn "}
-          theme={navbarAppTheme}
-          title="shop"
-          id="navbarScrollingDropdown_light"
-        />
-      </div>
-      <div className="video-home">
-        <BackgroundVideo />
-        <div className="home-page-content">
-          <p style={{ marginBottom: "-80px", color: "white" }}>people </p>
-          <p className="home-page-p">
-            of speciality{" "}
-            <span style={{ fontSize: "3vw", marginTop: "75px" }}>®</span>
-          </p>
+      <div className="home-top-page">
+        <div className="nav-home">
+          <NavbarApp
+            className={"navdropdown btn "}
+            theme={navbarAppTheme}
+            title="shop"
+          />
+        </div>
+        <div className="desktop-home">
+          <img className="img-desktop" src={HomeBgImage} alt="desktop-bg" />
         </div>
       </div>
       <div className="shop-card-components">

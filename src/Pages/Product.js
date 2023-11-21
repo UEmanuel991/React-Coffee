@@ -1,4 +1,5 @@
 import React from "react";
+import "../PagesStyle/style.css";
 import Wrapper from "../layouts/Wrapper";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -42,64 +43,35 @@ function Product() {
     <>
       <Wrapper>
         <div className="main-header-wrapper">
-          <hr style={{ margin: "0px 40px" }}></hr>
+          <hr />
         </div>
         <div className="main-content-wrapper">
           <div className="page-header">
-            <div className="page-header-links">
-              <NavLink
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  fontSize: "13px",
-                  margin: "0px 5px",
-                }}
-                to={"/"}
-              >
+            <div>
+              <NavLink className="header-navlinks" to={"/"}>
                 Home
               </NavLink>
-              <span style={{ fontSize: "13px" }} className="divider">
+              <span  className="divider">
                 /
               </span>
               <NavLink
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  fontSize: "13px",
-                  margin: "0px 5px",
-                }}
+                className="header-navlinks"
                 to={"/collections/collection-products"}
               >
                 Shop
               </NavLink>
-              <span style={{ fontSize: "13px" }} className="divider">
+              <span className="divider">
                 /
               </span>
-              <NavLink
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  fontSize: "13px",
-                  margin: "0px 5px",
-                }}
-                to={myLink}
-              >
+              <NavLink className="header-navlinks" to={myLink}>
                 {prodIndex === 0 ? "Espresso" : ""}
                 {prodIndex === 1 ? "Filtru" : ""}
                 {prodIndex === 2 ? "Microlot" : ""}
               </NavLink>
-              <span style={{ fontSize: "13px" }} className="divider">
+              <span className="divider">
                 /
               </span>
-              <NavLink
-                style={{
-                  textDecoration: "none",
-                  color: "#b3a394",
-                  fontSize: "13px",
-                  margin: "0px 5px",
-                }}
-                to={"#"}
-              >
+              <NavLink className="subnavlink" to={"#"}>
                 {allEspressoProducts?.[prodIndex]?.[id - 1].nume}
               </NavLink>
             </div>

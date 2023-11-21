@@ -1,3 +1,4 @@
+import "../cStyle.css/componentsStyle.css";
 import React, { useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Icon from "react-icons-kit";
@@ -42,8 +43,7 @@ function ProductCard() {
 
   const handleAddToCart = () => {
     const productToAdd = allEspressoProducts?.[prodIndex]?.[id - 1];
-    dispatch(add(productToAdd)); //productToAdd este Action din cartSLice.js
-   
+    dispatch(add(productToAdd));
   };
   const handleChangeValue = (e) => {
     const newValue = parseFloat(e.target.value);
@@ -73,7 +73,6 @@ function ProductCard() {
               <div className="input-wrapper">
                 <label htmlFor="quantity">Cantitate</label>
                 <input
-                  style={{ textAlign: "center", width: "50px" }}
                   className="input-quantity"
                   min={1}
                   type="number"
@@ -153,13 +152,8 @@ function ProductCard() {
                 </tr>
               </tbody>
             </Table>
-            <ul
-              style={{
-                border: "1px solid rgb(223, 217, 217)",
-                borderRadius: "5px",
-              }}
-            >
-              <h3 style={{ fontSize: "18px", marginTop: "10px" }}>Descriere</h3>
+            <ul>
+              <h3>Descriere</h3>
               <p>
                 {
                   allEspressoProducts?.[prodIndex]?.[id - 1].descriere
@@ -167,13 +161,6 @@ function ProductCard() {
                 }
               </p>
             </ul>
-            <ul
-              style={{
-                border: "1px solid rgb(223, 217, 217)",
-                height: "55px",
-                borderRadius: "5px",
-              }}
-            ></ul>
           </div>
           <div className="share-buttons">
             <NavLink
