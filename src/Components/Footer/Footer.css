@@ -1,11 +1,19 @@
 .footer-container {
-  /* position: fixed; */
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 44vh;
   background-color: #fff;
   overflow: hidden;
+}
+.footer-container footer {
+  padding-bottom: 20px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0px 50px;
 }
 .footer-logo {
   text-transform: uppercase;
@@ -14,32 +22,35 @@
   font-weight: 700;
   color: #000;
   letter-spacing: -0.17px;
-  overflow: hidden;
 }
 .footer-logo-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 33, 33%;
+  width: 33.33%;
+  padding: 15px;
 }
 .footer-title {
   text-transform: none;
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.25rem;
-  overflow: hidden;
 }
 .info-shop-footer {
-  display: flex;
- justify-content: flex-start;
-
- 
+  display: inline-flex;
+  justify-content: center;
+  width: 33.33%;
+  padding: 15px;
+}
+.info-container-footer {
+  margin-left: 10px;
 }
 .info-container-footer ul {
-  display: flex;
+  display: inline;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  list-style: none;
 }
 .info-container-footer a {
   vertical-align: top;
@@ -50,17 +61,69 @@
   list-style: none;
   cursor: pointer;
   color: black;
-  overflow: hidden;
 }
 .info-shop-footer > h3 {
   display: flex;
   justify-content: space-around;
-  overflow: hidden;
 }
 .description-footer {
   display: flex;
-  justify-content: center;
   width: 33.33%;
   flex-direction: column;
   overflow: hidden;
+  padding: 15px;
+}
+.description-footer h3 {
+  font-size: 14px;
+  overflow: hidden;
+}
+.description-footer p {
+  font-size: 0.8125rem;
+}
+.description-footer a {
+  text-decoration: none;
+  color: gray;
+}
+.footer-h3 {
+  display: inline;
+  font-size: 14px;
+  font-weight: 700;
+}
+.span-icons {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  justify-content: space-between;
+  margin-right:  100px;
+  gap: 10px;
+}
+.footer-icons {
+  width: 100%;
+  height: 100%;
+}
+footer span {
+  font-size: 13px;
+}
+
+@media (max-width: 800px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-logo-container {
+    align-items: center;
+    width: 80%;
+    transform: translate(0%, 24%);
+  }
+  .info-shop-footer {
+    justify-content: center;
+    width: 80%;
+    text-align: center;
+  }
+  .description-footer {
+    width: 80%;
+  }
+  .info-container-footer {
+    text-align: left;
+  }
 }

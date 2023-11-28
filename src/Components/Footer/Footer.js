@@ -1,104 +1,79 @@
-import React from "react";
 import "./Footer.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { NavLink } from "react-router-dom";
+import { RiPaypalLine } from "react-icons/ri";
+import { RiMastercardFill } from "react-icons/ri";
+import { RiVisaFill } from "react-icons/ri";
 
 function Footer() {
   const year = new Date().getFullYear();
   return (
     <div className="footer-container">
-      <Container>
-        <hr></hr>
-        <div>
-          <Row>
-            <Col>
-              <div className="footer-logo-container">
-                <h1 className="footer-logo">
-                  U™ <br></br> COFFEE
-                </h1>
-                <h1 className="footer-title">
-                  Pioneering specialty coffee since 2013
-                </h1>
-                <br></br>
-                <br></br>
-                <br></br>
-                <hr></hr>
-              </div>
-            </Col>
-            <Col>
-              <div className="info-shop-footer">
-                <Row>
-                  <Col className="info-container-footer">
-                    <h3
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "700",
-                        overflow: "hidden",
-                        display: "flex",
-                        justifyContent: "center",
-                      }}
-                    >
-                      INFO
-                    </h3>
-                    <ul style={{ listStyle: "none" }}>
-                      <li>
-                        <NavLink to={"/contact"}>Contact</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to={"/contact"}>Termeni si conditii</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to={"/contact"}>Politica Cookie</NavLink>
-                      </li>
-                    </ul>
-                  </Col>
-                  <Col className="info-container-footer">
-                    <h3
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "700",
-                        overflow: "hidden",
-                        display: "flex",
-                        justifyContent: "center",
-                      }}
-                    >
-                      SHOP
-                    </h3>
-                    <ul style={{ listStyle: "none" }}>
-                      <li>
-                        <NavLink to={"/collections/collection-products"}>
-                          Cafea
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink to={""}>Ceai</NavLink>
-                      </li>
-                    </ul>
-                  </Col>
-                </Row>
-              </div>
-            </Col>
-            <Col className="description-footer">
-              <h3 style={{ fontSize: "14px", overflow: "hidden" }}>U COFFEE</h3>
-              <p style={{ fontSize: "0.8125rem" }}>
-                U COFFEE este o comunitate de oameni care s-au împrietenit
-                necondiționat, oameni creativi, educați, deschiși care
-                împărtășesc experiențe și povești de viață, în timp ce pregătesc
-                cu discreție toate detaliile pentru o cafea bună. Ne alăturăm
-                curioși oricărei conversații despre cafea – fă-ne o vizită sau
-                scrie-ne aici.
-              </p>
-            </Col>
-            <hr></hr>
-            <footer>
-              {`Copyright © Upbeat Code ${year} Ucoffee. `}
-              <br></br>All rights reserved U™ Coffee.
-            </footer>
-          </Row>
+      <hr />
+      <div className="footer-content">
+        <div className="footer-logo-container">
+          <h1 className="footer-logo">
+            REACT™ <br /> COFFEE
+          </h1>
+          <h1 className="footer-title">
+            Pioneering specialty coffee since 2013
+          </h1>
+          <hr></hr>
         </div>
-      </Container>
+        <div className="info-shop-footer">
+          <div className="info-container-footer">
+            <h3 className="footer-h3">INFO</h3>
+            <ul>
+              <li>
+                <NavLink to={"/contact"}>Contact</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/contact"}>Termeni si conditii</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/contact"}>Politica Cookie</NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className="info-container-footer">
+            <h3 className="footer-h3">SHOP</h3>
+            <ul>
+              <li>
+                <NavLink to={"/collections/collection-products"}>Cafea</NavLink>
+              </li>
+              <li>
+                <NavLink to={"#"}>Ceai</NavLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="description-footer">
+          <h3>REACT COFFEE</h3>
+          <p>
+            React Coffee este o comunitate de oameni care s-au împrietenit
+            necondiționat, oameni creativi, educați, deschiși care împărtășesc
+            experiențe și povești de viață, în timp ce pregătesc cu discreție
+            toate detaliile pentru o cafea bună. Ne alăturăm curioși oricărei
+            conversații despre cafea - fă-ne o vizită sau scrie-ne
+            <a href="https://origocoffee.myshopify.com/pages/contact-1">
+              {" "}
+              aici.
+            </a>
+          </p>
+        </div>
+        <hr></hr>
+      </div>
+      <hr />
+      <footer>
+        <span>{`Copyright © Upbeat Code ${year} Ucoffee. `}
+        <br />
+        All rights reserved REACT™ Coffee.
+        </span>
+        <span className="span-icons">
+        <RiPaypalLine className="footer-icons" />
+        <RiMastercardFill className="footer-icons"/>
+        <RiVisaFill className="footer-icons"/>
+        </span>
+      </footer>
     </div>
   );
 }

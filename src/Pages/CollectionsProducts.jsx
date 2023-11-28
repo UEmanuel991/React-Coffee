@@ -1,5 +1,5 @@
+import "./style.css/CollectionsProducts.css"
 import React from "react";
-import "../PagesStyle/style.css";
 import { COFFEE } from "../utils/utils";
 import Wrapper from "../layouts/Wrapper";
 import { NavLink } from "react-router-dom";

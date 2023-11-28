@@ -1,8 +1,7 @@
 import React from "react";
-import "../PagesStyle/style.css";
+import "./style.css/Product.css";
 import Wrapper from "../layouts/Wrapper";
-import { NavLink } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCoffeData } from "../store/productsStore/coffeSlice";
 import ProductCard from "../Components/ProductCard/ProductCard";
@@ -10,7 +9,6 @@ import ProductCard from "../Components/ProductCard/ProductCard";
 function Product() {
   const coffeData = useSelector(selectCoffeData);
   const { productType, id } = useParams();
-
   const allEspressoProducts = coffeData.map((products) => {
     return products[productType];
   });
@@ -51,26 +49,20 @@ function Product() {
               <NavLink className="header-navlinks" to={"/"}>
                 Home
               </NavLink>
-              <span  className="divider">
-                /
-              </span>
+              <span className="divider">/</span>
               <NavLink
                 className="header-navlinks"
                 to={"/collections/collection-products"}
               >
                 Shop
               </NavLink>
-              <span className="divider">
-                /
-              </span>
+              <span className="divider">/</span>
               <NavLink className="header-navlinks" to={myLink}>
                 {prodIndex === 0 ? "Espresso" : ""}
                 {prodIndex === 1 ? "Filtru" : ""}
                 {prodIndex === 2 ? "Microlot" : ""}
               </NavLink>
-              <span className="divider">
-                /
-              </span>
+              <span className="divider">/</span>
               <NavLink className="subnavlink" to={"#"}>
                 {allEspressoProducts?.[prodIndex]?.[id - 1].nume}
               </NavLink>

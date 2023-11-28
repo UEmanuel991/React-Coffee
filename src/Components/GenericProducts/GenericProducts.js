@@ -1,5 +1,5 @@
 import React from "react";
-import "../../PagesStyle/style.css";
+import "./GenericProducts.css";
 import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -30,17 +30,13 @@ function GenerateProductsCards(productDetails) {
                       alt="logos"
                     />
                     <Card.Body>
-                      <Card.Text
-                        style={{ display: "flex", justifyContent: "center", textDecoration:"none" }}
-                      >
+                      <Card.Text className="card-text-card">
                         {p.detalii}
                       </Card.Text>
                       <Card.Title className="card-text-content">
                         {p.nume}
                       </Card.Title>
-                      <Card.Text
-                        style={{ display: "flex", justifyContent: "center" }}
-                      >
+                      <Card.Text className="card-text-card">
                         {cartItems &&
                         cartItems.cartCurrency.stateCurrency === "ron"
                           ? `Ron ${Number(p.pret * 1).toFixed(2)}`

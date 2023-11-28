@@ -1,8 +1,8 @@
-import "../cStyle.css/componentsStyle.css";
+import "./CartTable.css";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { remove, increase, decrease } from "../../store/cartSlice";
+import { remove, increase, decrease } from "../../store/cartStore/cartSlice";
 
 function CartTable() {
   const cartItems = useSelector((state) => state.cart);
@@ -38,7 +38,7 @@ function CartTable() {
                 </button>
                 <NavLink
                   className="cart-responsive-item"
-                  to={`/collections/collection-products/product/${product.productType}/${product.id}`}
+                  to={`/collections/collection-products`}
                 >
                   <img
                     className="table-container-img"
@@ -63,7 +63,7 @@ function CartTable() {
                   : ""}
               </td>
               <td className="last-td-table">
-                <td>
+                <div>
                   <span className="money">{product.cartQuantity}</span>
                   <button
                     className="btns1"
@@ -77,8 +77,8 @@ function CartTable() {
                   >
                     +
                   </button>
-                </td>
-                <td>
+                </div>
+                <div>
                   <p className="total-price-table">
                     {cartItems.cartCurrency.stateCurrency === "ron"
                       ? `Lei ${Number(
@@ -96,7 +96,7 @@ function CartTable() {
                         ).toFixed(2)}`
                       : ""}
                   </p>
-                </td>
+                </div>
               </td>
             </tr>
           ))}

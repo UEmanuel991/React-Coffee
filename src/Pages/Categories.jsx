@@ -1,11 +1,11 @@
 import React from "react";
-import ".././PagesStyle/style.css";
+import "./style.css/Categories.css"
 import Wrapper from "../layouts/Wrapper";
 import HomeCollectionsCard from "../Components/HomeCollectionsCard/HomeCollectionsCard";
 import { COLLECTIONS } from "../utils/utils";
 import { NavLink } from "react-router-dom";
 
-function Collections() {
+function Categories() {
   const collectionsData = COLLECTIONS;
   return (
     <Wrapper>
@@ -27,4 +27,4 @@ function Collections() {
   );
 }
 
-export default Collections;
+export default Categories;

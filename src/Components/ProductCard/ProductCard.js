@@ -1,4 +1,4 @@
-import "../cStyle.css/componentsStyle.css";
+import "./ProductCard.css";
 import React, { useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Icon from "react-icons-kit";
@@ -13,7 +13,7 @@ import {
   fetchCoffeData,
   selectCoffeData,
 } from "../../store/productsStore/coffeSlice";
-import { add, setInputValue } from "../../store/cartSlice";
+import { add, setInputValue } from "../../store/cartStore/cartSlice";
 
 function ProductCard() {
   const { productType, id } = useParams();

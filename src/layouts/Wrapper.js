@@ -5,7 +5,7 @@ const Wrapper = ({ children }) => {
 
   return (
     <>
-      <NavbarApp  className="shop-menu-btns" />
+      <NavbarApp/>
       <main>{children}</main>
       <Footer />
     </>

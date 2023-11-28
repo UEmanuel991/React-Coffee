@@ -1,0 +1,25 @@
+/* Collections-Products */
+
+.header-navlinks {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  margin: 0 5px;
+}
+.divider {
+  font-size: 14px;
+}
+.subnavlink {
+  text-decoration: none;
+  color: #b3a394;
+  font-size: 14px;
+  margin: 0 5px;
+}
+.collection-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  font-size: 30px;
+  font-weight: 400;
+}

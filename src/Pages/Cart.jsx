@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import "../PagesStyle/style.css";
+import "./style.css/Cart.css";
 import Wrapper from "../layouts/Wrapper";
 import CartTable from "../Components/CartTable/CartTable";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartTotal } from "../store/cartSlice";
+import { getCartTotal } from "../store/cartStore/cartSlice";
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getCartTotal());
   }, [dispatch, cartItems]);
@@ -30,14 +29,16 @@ function Cart() {
         <h1 className="collection-title">CART</h1>
         <div className="cart-checkout-container">
           <div className="tabel-cart">
-            <CartTable />
+            {cartItems.productsCart.length > 0 ? (
+              <CartTable />
+            ) : (
+              <h6>Cosul este gol!</h6>
+            )}
           </div>
           <div className="checkout-container">
             <div className="cart-tools">
               <div className="cart-instructions">
-                <p>
-                  Observatii comanda (optional)
-                </p>
+                <p>Observatii comanda (optional)</p>
                 <textarea className="text-area" name="note" rows={4}></textarea>
               </div>
             </div>
@@ -58,12 +59,14 @@ function Cart() {
                     : ""}
                 </span>
               </p>
-              <input
-                className="cart-checkout-button"
-                type="submit"
-                name="checkout"
-                value="CHECKOUT"
-              />
+              <NavLink to={"/collections/echipaments"}>
+                <input
+                  className="cart-checkout-button"
+                  type="submit"
+                  name="checkout"
+                  value="CHECKOUT"
+                />
+              </NavLink>
             </div>
           </div>
           <div className="checked-input mt-4 mb-4">

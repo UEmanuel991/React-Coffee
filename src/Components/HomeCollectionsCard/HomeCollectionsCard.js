@@ -1,5 +1,5 @@
 import React from "react";
-import "../cStyle.css/componentsStyle.css";
+import "./HomeCollectionsCard.css";
 import Card from "react-bootstrap/Card";
 import { NavLink } from "react-router-dom";
 
@@ -10,7 +10,7 @@ function HomeCollectionsCard({ detailsProd }) {
         detailsProd.map((prod, index) => (
           <Card className="card-comp" key={index}>
             <NavLink to={prod.path}>
-              <Card.Img variant="top" src={prod.images} />
+              <Card.Img className="home-collection-card-img" variant="top" src={prod.images} />
             </NavLink>
             <Card.Body>
               <NavLink className="nav-link" to={prod.path}>

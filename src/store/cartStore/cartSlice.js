@@ -4,7 +4,7 @@ const initialState = {
   productsCart: [],
   totalPrice: 0,
   totalQuantity: 0,
-  inputValue: 0,
+  inputValue: 1,
   cartCurrency: {
     stateCurrency: "ron",
   },
@@ -89,6 +89,7 @@ const cartSlice = createSlice({
         );
         state.productsCart = nextCartItems;
       }
+      return state.cartQuantity;
     },
     getCartTotal(state) {
       let { total, quantity } = state.productsCart.reduce(

@@ -1,5 +1,4 @@
 import "./App.css";
-import Collections from "./Pages/Collections";
 import Homepage from "./Pages/Homepage";
 import CollectionsProducts from "./Pages/CollectionsProducts";
 import Cart from "./Pages/Cart";
@@ -7,6 +6,7 @@ import Cont from "./Pages/Cont";
 import Products from "./Pages/Products";
 import Product from "./Pages/Product";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Categories from "./Pages/Categories";
 
 const route = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const route = createBrowserRouter([
     element: <Homepage />,
   },{
     path: "/collections",
-    element: <Collections />,
+    element: <Categories />,
   },{
     path: "/collections/collection-products",
     element: <CollectionsProducts />,

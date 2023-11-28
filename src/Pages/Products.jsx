@@ -1,4 +1,3 @@
-import "../PagesStyle/style.css";
 import Wrapper from "../layouts/Wrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
@@ -11,7 +10,6 @@ import GenericProducts from "../Components/GenericProducts/GenericProducts";
 
 function Products() {
   const params = useParams();
-
   const dispatch = useDispatch();
   const coffeData = useSelector(selectCoffeData);
 
