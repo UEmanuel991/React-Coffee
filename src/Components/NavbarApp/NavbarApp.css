@@ -4,10 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 160px;
+  width: 159px;
   margin-left: 70px;
-  height: 10vh;
-  background-color: white;
+  height: 50px;
+  background-color: #ffffffde;
+  box-shadow: 0 4px 8px 0 rgb(106 101 101 / 46%), 0 6px 20px 0 rgb(215 203 203 / 32%);
 }
 .menu-w {
   background-color: rgba((0, 0, 255, 0) 247, 247, 250);
@@ -303,7 +304,7 @@
   justify-content: center;
   align-items: center;
   width: 160px;
-  margin-left: 40px;
+  margin-left: 70px;
   height: 10vh;
 }
 
