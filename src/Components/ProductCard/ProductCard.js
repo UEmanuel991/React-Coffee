@@ -18,7 +18,6 @@ import { add, setInputValue } from "../../store/cartStore/cartSlice";
 function ProductCard() {
   const { productType, id } = useParams();
   const cartItems = useSelector((state) => state.cart);
-
   const coffeData = useSelector(selectCoffeData);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -41,13 +40,19 @@ function ProductCard() {
   };
   const prodIndex = getJsonIndex();
 
+  
+
   const handleAddToCart = () => {
     const productToAdd = allEspressoProducts?.[prodIndex]?.[id - 1];
     dispatch(add(productToAdd));
   };
   const handleChangeValue = (e) => {
     const newValue = parseFloat(e.target.value);
-    dispatch(setInputValue(newValue));
+    if(newValue < 1 || isNaN(newValue)) {
+      return e.target.value = 1
+    } else {
+      dispatch(setInputValue(newValue));
+    }
   };
 
   return (
@@ -85,17 +90,17 @@ function ProductCard() {
             </div>
             <div className="product-submit">
               <span className="product-price">
-                {cartItems.cartCurrency.stateCurrency === "ron"
+              {cartItems.cartCurrency.stateCurrency === "ron"
                   ? `Lei ${Number(
                       allEspressoProducts?.[prodIndex]?.[id - 1].pret
                     ).toFixed(2)}`
                   : ""}
-                {cartItems.cartCurrency.stateCurrency === "eur"
+                  {cartItems.cartCurrency.stateCurrency === "eur"
                   ? `€ ${Number(
                       allEspressoProducts?.[prodIndex]?.[id - 1].pret / 4.9
                     ).toFixed(2)}`
                   : ""}
-                {cartItems.cartCurrency.stateCurrency === "usd"
+                  {cartItems.cartCurrency.stateCurrency === "usd"
                   ? `$ ${Number(
                       allEspressoProducts?.[prodIndex]?.[id - 1].pret / 4.3
                     ).toFixed(2)}`

@@ -7,21 +7,19 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from "react-redux";
 import store, { persistor } from "./store/store";
 import { PersistGate } from "redux-persist/integration/react";
+import ErrorBoundary from "./ErrorBoundry";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
       </PersistGate>
     </Provider>
   </React.StrictMode>
 );
 
 reportWebVitals();
-
-/* 
-pentru a porni baza de date json:
-npx json-server --watch db/db.json --port 3110 
-*/

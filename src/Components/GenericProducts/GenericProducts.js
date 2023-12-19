@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 function GenerateProductsCards(productDetails) {
   const { productType } = useParams();
   const cartItems = useSelector((state) => state.cart);
-
+// console.log(productDetails[0])
   return (
     <>
       <div className="main-generateProductsCard">

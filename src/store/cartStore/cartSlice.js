@@ -9,6 +9,7 @@ const initialState = {
     stateCurrency: "ron",
   },
 };
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -18,13 +19,6 @@ const cartSlice = createSlice({
     },
     currency: (state, action) => {
       state.cartCurrency.stateCurrency = action.payload;
-      if (state.cartCurrency.stateCurrency === "eur") {
-        state.totalPrice = state.totalPrice / 4.9;
-      } else if (state.cartCurrency.stateCurrency === "ron") {
-        state.totalPrice = state.totalPrice / 1;
-      } else if (state.cartCurrency.stateCurrency === "usd") {
-        state.totalPrice = state.totalPrice / 4.5;
-      }
     },
     add: (state, action) => {
       const existingItem = state.productsCart.find(
@@ -74,6 +68,7 @@ const cartSlice = createSlice({
           item.id === action.payload.id && item.nume === action.payload.nume
       );
       item.cartQuantity++;
+      state.totalQuantity++;
       state.totalPrice = item.totalPrice;
     },
     decrease: (state, action) => {
@@ -83,13 +78,14 @@ const cartSlice = createSlice({
       );
       if (state.productsCart[itemIndex].cartQuantity > 1) {
         state.productsCart[itemIndex].cartQuantity -= 1;
+        state.totalQuantity -= 1;
       } else if (state.productsCart[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.productsCart.filter(
           (item) => item.id !== action.payload.id
         );
         state.productsCart = nextCartItems;
+        state.totalQuantity -= 1;
       }
-      return state.cartQuantity;
     },
     getCartTotal(state) {
       let { total, quantity } = state.productsCart.reduce(
@@ -120,5 +116,5 @@ export const {
   getCartTotal,
   currency,
   setInputValue,
-} = cartSlice.actions; //action creators
+} = cartSlice.actions;
 export default cartSlice.reducer;

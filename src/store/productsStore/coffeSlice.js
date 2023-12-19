@@ -5,7 +5,8 @@ const initialState = {
   coffe: [],
   error: null,
   status: "idle",
-  filteredCoffe: "",
+  filteredCoffes: [],
+  search: "",
 };
 export const fetchCoffeData = createAsyncThunk("coffeData/fetch", async () => {
   const response = await axios.get("http://localhost:3110/cafea");
@@ -16,18 +17,24 @@ export const coffeSlice = createSlice({
   name: "coffeData",
   initialState,
   reducers: {
-    searchProduct: (state, action) => {
-      state.filteredCoffe = action.payload
-      const searchProducts = state.coffe.filter(
-        (item) => item.name === action.payload.nume
-      );
-      if (searchProducts) {
-        let filteredProduct = {
-          ...action.payload,
-          sortedProducts: searchProducts,
+    searchByName: (state, action) => {
+      const searchTerm = action.payload.toLowerCase();
+      const filteredCoffes = state.coffe?.map((category) => {
+        console.log(category)
+        return {
+          ...category,
+          products: category[0]?.espresso[0]?.filter((product) =>
+          
+            product.nume.toLowerCase().includes(searchTerm)
+          ),
         };
-        state.filteredCoffe = filteredProduct;
-      }
+      });
+      console.log(filteredCoffes);
+      return {
+        ...state,
+        filteredCoffes:
+          action.payload.length > 0 ? filteredCoffes : [...state.coffe],
+      };
     },
   },
   extraReducers(builder) {
@@ -50,7 +57,7 @@ export const coffeSlice = createSlice({
   },
 });
 
-export const { searchProduct } = coffeSlice.actions
+export const { searchByName } = coffeSlice.actions;
 export default coffeSlice.reducer;
 export const selectCoffeData = (state) => state.coffe.coffe;
 export const selectCoffeStatus = (state) => state.coffe.status;

@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# pentru a porni baza de date json:
+npx json-server --watch db/db.json --port 3110 
+

@@ -140,6 +140,7 @@
   bottom: 0;
   right: 0;
   transform: translate(-85%, -106%);
+  font-size: 13px;
 }
 .search-icon {
   width: 26px;
@@ -342,6 +343,7 @@
   width: 10vw !important;
   background-color: #9e454500 !important;
   border: 1px solid rgb(56, 55, 55);
+  color: black !important;
 }
 @media (max-width: 800px) {
   .menu,

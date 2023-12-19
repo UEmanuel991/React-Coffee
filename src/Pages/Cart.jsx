@@ -11,8 +11,7 @@ function Cart() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCartTotal());
-  }, [dispatch, cartItems]);
-
+  }, [dispatch]);
   return (
     <Wrapper>
       <div className="main-header-wrapper">

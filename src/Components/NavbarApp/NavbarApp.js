@@ -7,12 +7,11 @@ import CoffeLogoWhite from "../../assets/white-logo.svg";
 import { NavLink, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { currency } from "../../store/cartStore/cartSlice";
-import { searchProduct } from "../../store/productsStore/coffeSlice";
+import { searchByName } from "../../store/productsStore/coffeSlice";
 
 function NavbarApp(props) {
-  const { totalQuantity } = useSelector((state) => state.cart);
+  const { totalQuantity, cartCurrency } = useSelector((state) => state.cart);
   const location = useLocation();
-  // eslint-disable-next-line no-unused-vars
   const allCurrency = [
     { label: "Ron", value: "ron" },
     { label: "Eur", value: "eur" },
@@ -24,7 +23,10 @@ function NavbarApp(props) {
     dispatch(currency(value));
   };
   const handleSearch = (value) => {
-    dispatch(searchProduct(value));
+    let myValue = "";
+    myValue = myValue.concat(value)
+    // console.log(myValue)
+    dispatch(searchByName(myValue));
   };
 
   return (
@@ -41,16 +43,17 @@ function NavbarApp(props) {
       <div className="navbar-second-div">
         <div className="second-container">
           <input type="checkbox" className="menu-btn" id="menu-btn" />
-          <label className={location.pathname === "/" ? "menu-icon-w " : "menu-icon"} htmlFor="menu-btn">
+          <label
+            className={location.pathname === "/" ? "menu-icon-w " : "menu-icon"}
+            htmlFor="menu-btn"
+          >
             <span
               className={location.pathname === "/" ? "navicon-w" : "navicon"}
             />
           </label>
           <div className="for-input-check">
             <div className="dropdown1">
-              <NavLink to={"/collections"}>
-                cafea
-              </NavLink>
+              <NavLink to={"/collections"}>cafea</NavLink>
               <NavLink to={"/collections/collection-products/product/espresso"}>
                 espresso
               </NavLink>
@@ -79,9 +82,7 @@ function NavbarApp(props) {
               shop
             </button>
             <div className="dropdown-content">
-              <NavLink to={"/collections"}>
-                produse
-              </NavLink>
+              <NavLink to={"/collections"}>produse</NavLink>
               <NavLink to={"/collections/collection-products/product/espresso"}>
                 espresso
               </NavLink>
@@ -130,7 +131,7 @@ function NavbarApp(props) {
           <NavLink to={"/collections/cart"}>
             <Button className="navbar-buttons">
               <svg
-                style={{ width: "25px !important" }}
+                style={{ width: "30px !important" }}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 576 512"
                 fill="currentColor"
@@ -143,7 +144,7 @@ function NavbarApp(props) {
             </Button>
           </NavLink>
           <select
-            defaultValue={"ron"}
+            value={cartCurrency.stateCurrency}
             onChange={(e) => handleChange(e.target.value)}
             className={
               location.pathname === "/"

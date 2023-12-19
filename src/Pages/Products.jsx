@@ -8,18 +8,24 @@ import {
 import { useEffect } from "react";
 import GenericProducts from "../Components/GenericProducts/GenericProducts";
 
+
 function Products() {
   const params = useParams();
   const dispatch = useDispatch();
   const coffeData = useSelector(selectCoffeData);
-
   useEffect(() => {
     dispatch(fetchCoffeData());
   }, [dispatch]);
 
+
+  // const filteredCoffes = useSelector((state) => state.coffe.filteredCoffes)
+console.log(coffeData[0]?.espresso)
+
+
   const allEspressoProducts = coffeData.map((products) =>
     products > 0 ? products : products.espresso
   );
+  // console.log(allEspressoProducts)
   const allFiltruProducts = coffeData.map((products) =>
     products > 0 ? products : products.filtru
   );
@@ -61,24 +67,24 @@ function Products() {
           >
             ESPRESSO
           </NavLink>
-          &nbsp; •&nbsp;&nbsp;
+          •
           <NavLink
             className="header-navlinks"
             to={"/collections/collection-products/product/filtru"}
           >
-            FILTRU &nbsp; •&nbsp;&nbsp;
+            FILTRU •
           </NavLink>
           <NavLink
             className="header-navlinks"
             to={"/collections/collection-products/product/microlot"}
           >
-            MICROLOT &nbsp; •&nbsp;&nbsp;
+            MICROLOT•
           </NavLink>
         </div>
         <GenericProducts
-          productDetailsM={allMicrolotProducts}
           productDetailsE={allEspressoProducts}
           productDetailsF={allFiltruProducts}
+          productDetailsM={allMicrolotProducts}
         />
       </Wrapper>
     </>

@@ -1,13 +1,15 @@
-import React from "react";
 import "./style.css/Product.css";
+import React from "react";
 import Wrapper from "../layouts/Wrapper";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCoffeData } from "../store/productsStore/coffeSlice";
 import ProductCard from "../Components/ProductCard/ProductCard";
+// import { searchProduct } from "../store/productsStore/coffeSlice";
 
 function Product() {
   const coffeData = useSelector(selectCoffeData);
+
   const { productType, id } = useParams();
   const allEspressoProducts = coffeData.map((products) => {
     return products[productType];
@@ -24,6 +26,11 @@ function Product() {
     return index;
   };
   const prodIndex = getJsonIndex();
+  // let espressoSearch = useSelector(
+  //   (state) => state.coffe.filteredCoffes
+  // );
+  // const coffe = useSelector((state) => state.coffe.coffe)
+ 
 
   const getLinkPath = () => {
     let pathLink = "";
@@ -37,6 +44,7 @@ function Product() {
     return pathLink;
   };
   const myLink = getLinkPath();
+
   return (
     <>
       <Wrapper>

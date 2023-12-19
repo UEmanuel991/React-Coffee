@@ -140,5 +140,5 @@ export const COFFEE = [
     name: "•  MICROLOT",
     image: "../img/microlot-caffe.jpg.jpg",
     link: "/collections/collection-products/product/microlot",
-  }
+  },
 ];
