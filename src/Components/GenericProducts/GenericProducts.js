@@ -1,8 +1,7 @@
 import React from "react";
 import "./GenericProducts.css";
 import Card from "react-bootstrap/Card";
-import { NavLink } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function GenerateProductsCards(productDetails) {
@@ -10,7 +9,7 @@ function GenerateProductsCards(productDetails) {
   const cartItems = useSelector((state) => state.cart);
 // console.log(productDetails[0])
   return (
-    <>
+    <div>
       <div className="main-generateProductsCard">
         {productDetails &&
           productDetails.map((product) => {
@@ -57,7 +56,7 @@ function GenerateProductsCards(productDetails) {
             );
           })}
       </div>
-    </>
+    </div>
   );
 }
 

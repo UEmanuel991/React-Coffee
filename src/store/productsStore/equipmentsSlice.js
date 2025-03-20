@@ -33,8 +33,6 @@ export const fetchEquipmentsData = createAsyncThunk(
   "equipmentsData/fetch",
   async () => {
     const response = await axios.get("http://localhost:3110/echipamente");
-    //   console.log("slice", response.data[0].espresso);
-    // console.log("slice", response.data[2]);
     return response.data;
   }
 );

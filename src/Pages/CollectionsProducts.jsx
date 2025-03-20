@@ -1,4 +1,4 @@
-import "./style.css/CollectionsProducts.css"
+import "./style.css/CollectionsProducts.css";
 import React from "react";
 import { COFFEE } from "../utils/utils";
 import Wrapper from "../layouts/Wrapper";
@@ -6,12 +6,12 @@ import { NavLink } from "react-router-dom";
 
 function CollectionsProducts() {
   return (
-    <>
+    <div>
       <Wrapper>
         <div className="coffe-container">
-        <div className="main-header-wrapper" >
-          <hr/>
-        </div>
+          <div className="main-header-wrapper">
+            <hr />
+          </div>
           <div className="page-header-links">
             <NavLink className="header-navlinks" to={"/"}>
               Home
@@ -62,7 +62,7 @@ function CollectionsProducts() {
           </div>
         </div>
       </Wrapper>
-    </>
+    </div>
   );
 }
 

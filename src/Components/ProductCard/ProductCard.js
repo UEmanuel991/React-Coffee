@@ -6,8 +6,7 @@ import { facebook } from "react-icons-kit/icomoon/facebook";
 import { pinterest } from "react-icons-kit/icomoon/pinterest";
 import { twitter } from "react-icons-kit/icomoon/twitter";
 import { mail } from "react-icons-kit/icomoon/mail";
-import { NavLink } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchCoffeData,
@@ -20,58 +19,47 @@ function ProductCard() {
   const cartItems = useSelector((state) => state.cart);
   const coffeData = useSelector(selectCoffeData);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCoffeData());
   }, [dispatch]);
 
-  const allEspressoProducts = coffeData.map((products) => {
-    return products[productType];
-  });
-  const getJsonIndex = () => {
-    let index = 0;
-    if (productType === "espresso") {
-      return index;
-    } else if (productType === "filtru") {
-      index = 1;
-    } else if (productType === "microlot") {
-      index = 2;
-    }
-    return index;
-  };
-  const prodIndex = getJsonIndex();
+  const allEspressoProducts =
+    coffeData.find((products) => products[productType])?.[productType] || [];
 
-  
+  const currentProduct = allEspressoProducts.find(
+    (product) => product.id === Number(id)
+  );
 
   const handleAddToCart = () => {
-    const productToAdd = allEspressoProducts?.[prodIndex]?.[id - 1];
-    dispatch(add(productToAdd));
+    if (currentProduct) {
+      dispatch(add(currentProduct));
+    }
   };
+
   const handleChangeValue = (e) => {
     const newValue = parseFloat(e.target.value);
-    if(newValue < 1 || isNaN(newValue)) {
-      return e.target.value = 1
+    if (newValue < 1 || isNaN(newValue)) {
+      return (e.target.value = 1);
     } else {
       dispatch(setInputValue(newValue));
     }
   };
 
+  if (!currentProduct) {
+    return <div>Product not found</div>;
+  }
+
   return (
     <div className="main-content">
       <div className="product-wrap">
         <div className="product-wrap-image">
-          <img
-            src={allEspressoProducts?.[prodIndex]?.[id - 1].imagine}
-            alt="brazil-img"
-          ></img>
+          <img src={currentProduct.imagine} alt={currentProduct.nume} />
         </div>
         <div className="product-container-details">
           <div className="product-details">
-            <h1 className="page-title">
-              {allEspressoProducts?.[prodIndex]?.[id - 1].nume}
-            </h1>
-            <span className="product-vendor">
-              {allEspressoProducts?.[prodIndex]?.[id - 1].detalii}
-            </span>
+            <h1 className="page-title">{currentProduct.nume}</h1>
+            <span className="product-vendor">{currentProduct.detalii}</span>
           </div>
           <div className="product-form">
             <div className="product-quantity">
@@ -85,39 +73,31 @@ function ProductCard() {
                   defaultValue={"1"}
                   id="quantity"
                   onChange={(e) => handleChangeValue(e)}
-                ></input>
+                />
               </div>
             </div>
             <div className="product-submit">
               <span className="product-price">
-              {cartItems.cartCurrency.stateCurrency === "ron"
-                  ? `Lei ${Number(
-                      allEspressoProducts?.[prodIndex]?.[id - 1].pret
-                    ).toFixed(2)}`
+                {cartItems.cartCurrency.stateCurrency === "ron"
+                  ? `Lei ${Number(currentProduct.pret).toFixed(2)}`
                   : ""}
-                  {cartItems.cartCurrency.stateCurrency === "eur"
-                  ? `€ ${Number(
-                      allEspressoProducts?.[prodIndex]?.[id - 1].pret / 4.9
-                    ).toFixed(2)}`
+                {cartItems.cartCurrency.stateCurrency === "eur"
+                  ? `€ ${Number(currentProduct.pret / 4.9).toFixed(2)}`
                   : ""}
-                  {cartItems.cartCurrency.stateCurrency === "usd"
-                  ? `$ ${Number(
-                      allEspressoProducts?.[prodIndex]?.[id - 1].pret / 4.3
-                    ).toFixed(2)}`
+                {cartItems.cartCurrency.stateCurrency === "usd"
+                  ? `$ ${Number(currentProduct.pret / 4.3).toFixed(2)}`
                   : ""}
               </span>
               <input
                 className="add-to-cart"
                 type="submit"
                 value="Add"
-                onClick={() =>
-                  handleAddToCart(allEspressoProducts?.[prodIndex]?.[id - 1])
-                }
-              ></input>
+                onClick={handleAddToCart}
+              />
             </div>
             <div className="product-options"></div>
           </div>
-          <hr></hr>
+          <hr />
           <div className="products-description">
             <Table>
               <thead>
@@ -130,76 +110,43 @@ function ProductCard() {
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    {
-                      allEspressoProducts?.[prodIndex]?.[id - 1].descriere
-                        .regiune
-                    }
-                  </td>
-                  <td>
-                    {
-                      allEspressoProducts?.[prodIndex]?.[id - 1].descriere
-                        .altitudine
-                    }
-                  </td>
-                  <td>
-                    {
-                      allEspressoProducts?.[prodIndex]?.[id - 1].descriere
-                        .varietate
-                    }
-                  </td>
-                  <td>
-                    {
-                      allEspressoProducts?.[prodIndex]?.[id - 1].descriere
-                        .procesare
-                    }
-                  </td>
+                  <td>{currentProduct.descriere.regiune}</td>
+                  <td>{currentProduct.descriere.altitudine}</td>
+                  <td>{currentProduct.descriere.varietate}</td>
+                  <td>{currentProduct.descriere.procesare}</td>
                 </tr>
               </tbody>
             </Table>
             <ul>
               <h3>Descriere</h3>
-              <p>
-                {
-                  allEspressoProducts?.[prodIndex]?.[id - 1].descriere
-                    .informatii
-                }
-              </p>
+              <p>{currentProduct.descriere.informatii}</p>
             </ul>
           </div>
           <div className="share-buttons">
             <NavLink
               target="_blank"
-              to={
-                "https://www.facebook.com/sharer.php?u=https://origocoffee.ro/products/brazilia-olhos-daqua"
-              }
+              to={`https://www.facebook.com/sharer.php?u=${window.location.href}`}
               rel="noreferrer"
             >
               <Icon icon={facebook} />
             </NavLink>
             <NavLink
               target="_blank"
-              to={
-                "https://twitter.com/share?url=https://origocoffee.ro/products/brazilia-olhos-daqua"
-              }
+              to={`https://twitter.com/share?url=${window.location.href}`}
               rel="noreferrer"
             >
               <Icon icon={twitter} />
             </NavLink>
             <NavLink
               target="_blank"
-              to={
-                "https://pinterest.com/pin/create/button/?url=https://origocoffee.ro/products/brazilia-olhos-daqua&media=http://origocoffee.ro/cdn/shop/products/2.BrazilOlhosD_Agua-fata_1024x1024.jpg?v=1667403974&description=Brazil%20Olhos%20d%27Agua"
-              }
+              to={`https://pinterest.com/pin/create/button/?url=${window.location.href}`}
               rel="noreferrer"
             >
               <Icon icon={pinterest} />
             </NavLink>
             <NavLink
               target="_blank"
-              to={
-                "mailto:?subject=Brazil Olhos d'Agua&amp;body=Check this out https://origocoffee.ro/products/brazilia-olhos-daqua"
-              }
+              to={`mailto:?subject=${currentProduct.nume}&body=Check this out ${window.location.href}`}
               className="share-email"
               rel="noreferrer"
             >

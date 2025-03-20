@@ -7,6 +7,7 @@ import { remove, increase, decrease } from "../../store/cartStore/cartSlice";
 function CartTable() {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
   const displayProducts = cartItems.productsCart;
 
   const handleRemove = (product) => {

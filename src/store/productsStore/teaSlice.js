@@ -31,8 +31,6 @@ export const teaSlice = createSlice({
 });
 export const fetchTeaData = createAsyncThunk("teaData/fetch", async () => {
   const response = await axios.get("http://localhost:3110/ceai");
-  //   console.log("slice", response.data[0].espresso);
-  // console.log("slice", response.data[1]);
   return response.data;
 });
 

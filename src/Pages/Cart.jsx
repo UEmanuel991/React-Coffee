@@ -11,7 +11,7 @@ function Cart() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCartTotal());
-  }, [dispatch]);
+  }, [dispatch, cartItems.productsCart]);
   return (
     <Wrapper>
       <div className="main-header-wrapper">
@@ -46,7 +46,7 @@ function Cart() {
                 <span className="total-cart-money">
                   {cartItems.totalPrice &&
                   cartItems.cartCurrency.stateCurrency === "ron"
-                    ? `Ron ${Number(cartItems.totalPrice * 1).toFixed(2)}`
+                    ? `Ron ${Number(cartItems.totalPrice).toFixed(2)}`
                     : ""}
                   {cartItems.totalPrice &&
                   cartItems.cartCurrency.stateCurrency === "eur"

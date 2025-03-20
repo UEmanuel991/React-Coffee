@@ -1,8 +1,6 @@
 import "./Footer.css";
 import { NavLink } from "react-router-dom";
-import { RiPaypalLine } from "react-icons/ri";
-import { RiMastercardFill } from "react-icons/ri";
-import { RiVisaFill } from "react-icons/ri";
+import { RiPaypalLine, RiMastercardFill, RiVisaFill } from "react-icons/ri";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -64,14 +62,15 @@ function Footer() {
       </div>
       <hr />
       <footer>
-        <span>{`Copyright © Upbeat Code ${year} Ucoffee. `}
-        <br />
-        All rights reserved REACT™ Coffee.
+        <span>
+          {`Copyright © Upbeat Code ${year} Ucoffee. `}
+          <br />
+          All rights reserved REACT™ Coffee.
         </span>
         <span className="span-icons">
-        <RiPaypalLine className="footer-icons" />
-        <RiMastercardFill className="footer-icons"/>
-        <RiVisaFill className="footer-icons"/>
+          <RiPaypalLine className="footer-icons" />
+          <RiMastercardFill className="footer-icons" />
+          <RiVisaFill className="footer-icons" />
         </span>
       </footer>
     </div>

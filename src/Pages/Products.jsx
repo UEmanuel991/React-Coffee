@@ -8,7 +8,6 @@ import {
 import { useEffect } from "react";
 import GenericProducts from "../Components/GenericProducts/GenericProducts";
 
-
 function Products() {
   const params = useParams();
   const dispatch = useDispatch();
@@ -17,15 +16,10 @@ function Products() {
     dispatch(fetchCoffeData());
   }, [dispatch]);
 
-
-  // const filteredCoffes = useSelector((state) => state.coffe.filteredCoffes)
-console.log(coffeData[0]?.espresso)
-
-
   const allEspressoProducts = coffeData.map((products) =>
     products > 0 ? products : products.espresso
   );
-  // console.log(allEspressoProducts)
+
   const allFiltruProducts = coffeData.map((products) =>
     products > 0 ? products : products.filtru
   );
@@ -34,7 +28,7 @@ console.log(coffeData[0]?.espresso)
   );
 
   return (
-    <>
+    <div>
       <Wrapper>
         <div className="main-header-wrapper">
           <hr />
@@ -87,7 +81,7 @@ console.log(coffeData[0]?.espresso)
           productDetailsM={allMicrolotProducts}
         />
       </Wrapper>
-    </>
+    </div>
   );
 }
 

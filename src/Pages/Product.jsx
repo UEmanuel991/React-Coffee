@@ -5,7 +5,6 @@ import { NavLink, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCoffeData } from "../store/productsStore/coffeSlice";
 import ProductCard from "../Components/ProductCard/ProductCard";
-// import { searchProduct } from "../store/productsStore/coffeSlice";
 
 function Product() {
   const coffeData = useSelector(selectCoffeData);
@@ -14,6 +13,7 @@ function Product() {
   const allEspressoProducts = coffeData.map((products) => {
     return products[productType];
   });
+
   const getJsonIndex = () => {
     let index = 0;
     if (productType === "espresso") {
@@ -26,11 +26,6 @@ function Product() {
     return index;
   };
   const prodIndex = getJsonIndex();
-  // let espressoSearch = useSelector(
-  //   (state) => state.coffe.filteredCoffes
-  // );
-  // const coffe = useSelector((state) => state.coffe.coffe)
- 
 
   const getLinkPath = () => {
     let pathLink = "";
@@ -46,7 +41,7 @@ function Product() {
   const myLink = getLinkPath();
 
   return (
-    <>
+    <div>
       <Wrapper>
         <div className="main-header-wrapper">
           <hr />
@@ -72,14 +67,14 @@ function Product() {
               </NavLink>
               <span className="divider">/</span>
               <NavLink className="subnavlink" to={"#"}>
-                {allEspressoProducts?.[prodIndex]?.[id - 1].nume}
+                {allEspressoProducts?.[prodIndex]?.[id - 1]?.nume}
               </NavLink>
             </div>
           </div>
           <ProductCard />
         </div>
       </Wrapper>
-    </>
+    </div>
   );
 }
 

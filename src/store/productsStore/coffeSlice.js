@@ -20,11 +20,10 @@ export const coffeSlice = createSlice({
     searchByName: (state, action) => {
       const searchTerm = action.payload.toLowerCase();
       const filteredCoffes = state.coffe?.map((category) => {
-        console.log(category)
+        console.log(category);
         return {
           ...category,
           products: category[0]?.espresso[0]?.filter((product) =>
-          
             product.nume.toLowerCase().includes(searchTerm)
           ),
         };
